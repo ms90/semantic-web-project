@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+		<!-- Website Title & Description for Search Engine purposes -->
+		<title></title>
+		<meta name="description" content="">
+		
+		<!-- Mobile viewport optimized -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- Bootstrap CSS -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link href="includes/css/styles.css" rel="stylesheet">
+		
+		<!-- Include Modernizr in the head, before any other Javascript -->
+		<script src="includes/js/modernizr-2.6.2.min.js"></script>
+		
+	</head>
+<body style="background: #585858">
+	<div class="container" id="main">
+		<br>
+		<div class="col-sm-12 feature">
+			<div class="well">
+				<div class="page-header">
+					<h1>
+						Country Comparison and Scoring <small>Compare two
+							countries by weighted attributes.</small>
+					</h1>
+				</div>
+				<p class="lead">Some explanatory text...</p>
+			</div>
+		</div>
+		<div class="col-sm-12 feature">
+			<div class="well">
+				<form role="form">
+					<div class="form-group col-sm-6">
+						<label for="country1">Country 1</label> <input type="text"
+							class="form-control" id="country1" placeholder="First Country">
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="country2">Country 2</label> <input type="text"
+							class="form-control" id="country2" placeholder="Second Country">
+					</div>
+				</form>
+				<div align="right">
+					<button type="button" class="btn btn-success">Compare</button>
+					<a href="#myModal" role="button" class="btn btn-primary"
+						data-toggle="modal">Advanced Scoring</a>
+				</div>
+				<div class="modal fade" id="myModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Advanced Attribute Selection</h4>
+							</div>
+							<div class="modal-body">
+								<div class="col-sm-6">
+									<h5>Attribute 1</h5>
+									<select class="form-control" id="attr1">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 2</h5>
+									<select class="form-control" id="attr2">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 3</h5>
+									<select class="form-control" id="attr3">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 4</h5>
+									<select class="form-control" id="attr4">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 5</h5>
+									<select class="form-control" id="attr5">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+								</div>
+								<div class="col-sm-6">
+									<h5>Attribute 6</h5>
+									<select class="form-control" id="attr1">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 7</h5>
+									<select class="form-control" id="attr2">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 8</h5>
+									<select class="form-control" id="attr3">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 9</h5>
+									<select class="form-control" id="attr4">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<h5>Attribute 10</h5>
+									<select class="form-control" id="attr5">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-success" data-dismiss="modal"
+									type="button">Save</button>
+								<button class="btn btn-danger" data-dismiss="modal"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="feature col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Score: Country 1</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 1</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 2</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 3</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 4</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 5</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 6</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 7</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 8</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 9</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 10</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="feature col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Score: Country 2</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 1</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 2</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 3</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 4</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 5</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 6</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 7</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 8</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 9</li>
+						<li class="list-group-item list-group-item-success"><span
+							class="badge">42</span>Attribute 10</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- All Javascript at the bottom of the page for faster page loading -->
+
+	<!-- First try for the online version of jQuery-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
+	</script>
+
+	<!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
+	
+</body>
+</html>
+
