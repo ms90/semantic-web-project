@@ -3,8 +3,7 @@
 My Custom JS
 ============
 
-Author:  Brad Hussey
-Updated: August 2013
-Notes:	 Hand coded for Udemy.com
+Author:  Maxim Serebrianski
+Updated: 2014-10-12
 
 */
