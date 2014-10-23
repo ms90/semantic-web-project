@@ -1,4 +1,4 @@
-package dbpedia;
+package extractor.eurostat;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,9 +15,9 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFormatter;
 
 
-public class DBP_Extractor {
+public class EUR_Extractor {
 	
-	static ArrayList<String> ids = new ArrayList<>();
+	static ArrayList<String> ids = new ArrayList<String>();
 
 	public static void main (String args[]) {
 		try {

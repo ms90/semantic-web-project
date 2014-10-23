@@ -1,4 +1,4 @@
-package cia;
+package extractor.cia;
 
 public class CIAFB_Extractor {
 
