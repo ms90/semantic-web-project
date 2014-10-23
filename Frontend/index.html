@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<!-- Website Title & Description for Search Engine purposes -->
+<title></title>
+<meta name="description" content="">
+
+<!-- Mobile viewport optimized -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Bootstrap CSS -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="includes/css/styles.css" rel="stylesheet">
+
+<!-- Include Modernizr in the head, before any other Javascript -->
+<script src="includes/js/modernizr-2.6.2.min.js"></script>
+
+</head>
+<body style="background: #585858">
+	<div class="container" id="main">
+		<br>
+		<div class="col-sm-12 feature">
+			<div class="well">
+				<div class="page-header">
+					<h1>
+						Country Comparison and Scoring <small>Compare two
+							countries by weighted attributes.</small>
+					</h1>
+				</div>
+				<p class="lead">Some explanatory text...</p>
+			</div>
+		</div>
+		<div class="col-sm-12 feature">
+			<div class="well">
+				<form role="form">
+					<div class="form-group col-sm-6">
+						<label for="country1">Country 1</label> <input type="text"
+							class="form-control" id="country1" placeholder="First Country">
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="country2">Country 2</label> <input type="text"
+							class="form-control" id="country2" placeholder="Second Country">
+					</div>
+				</form>
+				<div align="right">
+					<button type="button" class="btn btn-success">Compare</button>
+					<a href="#myModal" role="button" class="btn btn-primary"
+						data-toggle="modal">Advanced Scoring</a>
+				</div>
+				<div class="modal fade" id="myModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Advanced Attribute Selection</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal">
+									<label class="control-label" for="at1">Attribute 1</label> 
+									<select	class="form-control" id="at1">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at2">Attribute 2</label> 
+									<select class="form-control" id="at2">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at3">Attribute 3</label> 
+									<select	class="form-control" id="at3">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at4">Attribute 4</label> 
+									<select	class="form-control" id="at4">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at5">Attribute 5</label> 
+									<select	class="form-control" id="at5">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+									<label class="control-label" for="at6">Attribute 6</label> 
+									<select	class="form-control" id="at6">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at7">Attribute 7</label> 
+									<select class="form-control" id="at7">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at8">Attribute 8</label> 
+									<select	class="form-control" id="at8">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at9">Attribute 9</label> 
+									<select	class="form-control" id="at9">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select> 
+									<label class="control-label" for="at10">Attribute 10</label> 
+									<select	class="form-control" id="at10">
+										<option>100%</option>
+										<option>75%</option>
+										<option>50%</option>
+										<option>25%</option>
+										<option>0%</option>
+									</select>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-success" data-dismiss="modal" type="button">Save</button>
+								<button class="btn btn-danger" data-dismiss="modal" type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="feature col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Country 1</h3>
+				</div>
+				<div class="panel-body">
+					<label class="control-label col-sm-3" for="at1">Attribute 1</label>
+					<div class="progress" id="at1">
+						<div class="progress-bar progress-bar-success col-sm-3"
+							role="progressbar" aria-valuenow="60" aria-valuemin="0"
+							aria-valuemax="100" style="width: 60%;">60</div>
+					</div>
+					<label class="control-label col-sm-3" for="at2">Attribute 2</label>
+					<div class="progress" id="at2">
+						<div class="progress-bar progress-bar-warning col-sm-3"
+							role="progressbar" aria-valuenow="45" aria-valuemin="0"
+							aria-valuemax="100" style="width: 45%;">45</div>
+					</div>
+					<label class="control-label col-sm-3" for="at3">Attribute 3</label>
+					<div class="progress" id="at3">
+						<div class="progress-bar progress-bar-danger col-sm-3"
+							role="progressbar" aria-valuenow="80" aria-valuemin="0"
+							aria-valuemax="100" style="width: 80%;">80</div>
+					</div>
+					<label class="control-label col-sm-3" for="at4">Attribute 4</label>
+					<div class="progress" id="at4">
+						<div class="progress-bar col-sm-3" role="progressbar"
+							aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+							style="width: 30%;">30</div>
+					</div>
+					<label class="control-label col-sm-3" for="at5">Attribute 5</label>
+					<div class="progress" id="at5">
+						<div class="progress-bar progress-bar-warning col-sm-3"
+							role="progressbar" aria-valuenow="75" aria-valuemin="0"
+							aria-valuemax="100" style="width: 75%;">75</div>
+					</div>
+					<label class="control-label col-sm-3" for="at6">Attribute 6</label>
+					<div class="progress" id="at6">
+						<div class="progress-bar progress-bar-danger col-sm-3"
+							role="progressbar" aria-valuenow="60" aria-valuemin="0"
+							aria-valuemax="100" style="width: 60%;">60</div>
+					</div>
+					<label class="control-label col-sm-3" for="at7">Attribute 7</label>
+					<div class="progress" id="at7">
+						<div class="progress-bar progress-bar-success col-sm-3"
+							role="progressbar" aria-valuenow="45" aria-valuemin="0"
+							aria-valuemax="100" style="width: 45%;">45</div>
+					</div>
+					<label class="control-label col-sm-3" for="at8">Attribute 8</label>
+					<div class="progress" id="at8">
+						<div class="progress-bar col-sm-3" role="progressbar"
+							aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+							style="width: 80%;">80</div>
+					</div>
+					<label class="control-label col-sm-3" for="at9">Attribute 9</label>
+					<div class="progress" id="at9">
+						<div class="progress-bar progress-bar-danger col-sm-3"
+							role="progressbar" aria-valuenow="30" aria-valuemin="0"
+							aria-valuemax="100" style="width: 30%;">30</div>
+					</div>
+					<label class="control-label col-sm-3" for="at10">Attribute
+						10</label>
+					<div class="progress" id="at10">
+						<div class="progress-bar progress-bar-success col-sm-3"
+							role="progressbar" aria-valuenow="75" aria-valuemin="0"
+							aria-valuemax="100" style="width: 75%;">75</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<label class="control-label col-sm-3" for="sc1">Score</label>
+					<div class="progress" id="sc1">
+						<div class="progress-bar progress-bar-info col-sm-3"
+							role="progressbar" aria-valuenow="58" aria-valuemin="0"
+							aria-valuemax="100" style="width: 58%;">58</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="feature col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Country 2</h3>
+				</div>
+				<div class="panel-body">
+					<label class="control-label col-sm-3" for="at11">Attribute
+						1</label>
+					<div class="progress" id="at11">
+						<div class="progress-bar progress-bar-success col-sm-3"
+							role="progressbar" aria-valuenow="60" aria-valuemin="0"
+							aria-valuemax="100" style="width: 60%;">60</div>
+					</div>
+					<label class="control-label col-sm-3" for="at12">Attribute
+						2</label>
+					<div class="progress" id="at12">
+						<div class="progress-bar progress-bar-warning col-sm-3"
+							role="progressbar" aria-valuenow="45" aria-valuemin="0"
+							aria-valuemax="100" style="width: 45%;">45</div>
+					</div>
+					<label class="control-label col-sm-3" for="at13">Attribute
+						3</label>
+					<div class="progress" id="at13">
+						<div class="progress-bar col-sm-3" role="progressbar"
+							aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+							style="width: 80%;">80</div>
+					</div>
+					<label class="control-label col-sm-3" for="at14">Attribute
+						4</label>
+					<div class="progress" id="at14">
+						<div class="progress-bar progress-bar-success col-sm-3"
+							role="progressbar" aria-valuenow="30" aria-valuemin="0"
+							aria-valuemax="100" style="width: 30%;">30</div>
+					</div>
+					<label class="control-label col-sm-3" for="at15">Attribute
+						5</label>
+					<div class="progress" id="at15">
+						<div class="progress-bar progress-bar-warning col-sm-3"
+							role="progressbar" aria-valuenow="75" aria-valuemin="0"
+							aria-valuemax="100" style="width: 75%;">75</div>
+					</div>
+					<label class="control-label col-sm-3" for="at16">Attribute
+						6</label>
+					<div class="progress" id="at16">
+						<div class="progress-bar progress-bar-danger col-sm-3"
+							role="progressbar" aria-valuenow="60" aria-valuemin="0"
+							aria-valuemax="100" style="width: 60%;">60</div>
+					</div>
+					<label class="control-label col-sm-3" for="at17">Attribute
+						7</label>
+					<div class="progress" id="at17">
+						<div class="progress-bar col-sm-3" role="progressbar"
+							aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+							style="width: 45%;">45</div>
+					</div>
+					<label class="control-label col-sm-3" for="at18">Attribute
+						8</label>
+					<div class="progress" id="at18">
+						<div class="progress-bar progress-bar-warning col-sm-3"
+							role="progressbar" aria-valuenow="80" aria-valuemin="0"
+							aria-valuemax="100" style="width: 80%;">80</div>
+					</div>
+					<label class="control-label col-sm-3" for="at19">Attribute
+						9</label>
+					<div class="progress" id="at19">
+						<div class="progress-bar progress-bar-danger col-sm-3"
+							role="progressbar" aria-valuenow="30" aria-valuemin="0"
+							aria-valuemax="100" style="width: 30%;">30</div>
+					</div>
+					<label class="control-label col-sm-3" for="at20">Attribute
+						10</label>
+					<div class="progress" id="at20">
+						<div class="progress-bar progress-bar-success col-sm-3"
+							role="progressbar" aria-valuenow="75" aria-valuemin="0"
+							aria-valuemax="100" style="width: 75%;">75</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<label class="control-label col-sm-3" for="sc2">Score</label>
+					<div class="progress" id="sc2">
+						<div class="progress-bar progress-bar-info col-sm-3"
+							role="progressbar" aria-valuenow="58" aria-valuemin="0"
+							aria-valuemax="100" style="width: 58%;">58</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- All Javascript at the bottom of the page for faster page loading -->
+
+	<!-- First try for the online version of jQuery-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
+	</script>
+
+	<!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
+
+</body>
+</html>
+
