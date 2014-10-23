@@ -1,0 +1,9 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>semantic-web-project</groupId>
+  <artifactId>semantic-web-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>SemWebProject</name>
+  <description>Team project for Semantic Web Technologies course 2014</description>
+  <url>http://dws.informatik.uni-mannheim.de/en/teaching/courses-for-master-candidates/cs-660-semantic-web-technologies/</url>
+</project>
