@@ -1,9 +1,20 @@
 TODO:
+Mahendra:
 - SPARQL queries for dbpedia
+
+Marc:
 - extract attribute information from CIA factbook in JS
+
+Erica:
 - JS for comparison calculation
 - JS total ranking calculation including user-chosen weightings
+
+Maxim:
 - JS update the presentation in the page
 - restructure the html page (general attributes + rated attributes + button for further information)
-- country flags (?)
 - attribute tool-tips
+
+
+
+
+- country flags (?)
