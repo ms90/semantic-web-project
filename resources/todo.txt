@@ -1,0 +1,9 @@
+TODO:
+- SPARQL queries for dbpedia
+- extract attribute information from CIA factbook in JS
+- JS for comparison calculation
+- JS total ranking calculation including user-chosen weightings
+- JS update the presentation in the page
+- restructure the html page (general attributes + rated attributes + button for further information)
+- country flags (?)
+- attribute tool-tips
