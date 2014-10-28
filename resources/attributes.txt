@@ -26,6 +26,14 @@ CIA: Life expectancy at birth
 CIA: Health expenditures
 CIA: HIV/AIDS - deaths
 
+General Information:
+dbpedia-owl:capital
+dbpedia-owl:currency
+dbpedia-owl:governmentType
+dbpedia-owl:officialLanguage
+country flag (?)
 
+Button --> Popup-window: dbpedia-owl:abstract
+						 link to wikipedia page
 
 
