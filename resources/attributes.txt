@@ -1,9 +1,7 @@
 Geography:
 dbpedia: PopulatedPlace/areaTotal
 dbpedia: populationDensity
-dbpedia: areaTotal
 dbpedia: percentageOfAreaWater
-dbpedia: populationTotal
 CIA: Railways
 CIA: Roadways
 
@@ -27,6 +25,8 @@ CIA: Health expenditures
 CIA: HIV/AIDS - deaths
 
 General Information:
+dbpedia: areaTotal
+dbpedia: populationTotal
 dbpedia-owl:capital
 dbpedia-owl:currency
 dbpedia-owl:governmentType
