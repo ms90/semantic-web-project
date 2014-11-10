@@ -27,6 +27,11 @@
       .write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')
     </script>
 
+    <script type="text/javascript">
+        $(document).ready( function () {
+          loadCountryList();})
+    </script>
+
     <!-- Bootstrap JS -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
@@ -54,10 +59,12 @@
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
                 <h3 class="modal-title">Advanced Attribute Selection</h3>
+                <p style="color:red">Check the box next to an attribute to invert its scoring behavior. Every attribute makes an assumption on how to evaluate it, e.g. higher population density equals higher score.</p>
             </div>
             <div class="modal-body row">
                 <div class="col-sm-6">
                   <form class="form-horizontal" id="scoreForm1">
+                    <input type="checkbox" id="chk1">
                     <label class="control-label" for="at1">Populated Place/Total Area</label> 
                     <select class="form-control" id="at1">
                         <option>100%</option>
@@ -66,6 +73,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select> 
+                    <input type="checkbox" id="chk2">
                     <label class="control-label" for="at2">Population Density</label> 
                     <select class="form-control" id="at2">
                         <option>100%</option>
@@ -74,6 +82,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select> 
+                    <input type="checkbox" id="chk3">
                     <label class="control-label" for="at3">Percentage of Area is Water</label> 
                     <select class="form-control" id="at3">
                         <option>100%</option>
@@ -82,6 +91,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select>
+                    <input type="checkbox" id="chk4">
                     <label class="control-label" for="at4">Roadways</label> 
                     <select class="form-control" id="at4">
                         <option>100%</option>
@@ -90,6 +100,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select> 
+                    <input type="checkbox" id="chk5">
                     <label class="control-label" for="at5">Railways</label> 
                     <select class="form-control" id="at5">
                         <option>100%</option>
@@ -98,6 +109,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select>
+                    <input type="checkbox" id="chk6">
                     <label class="control-label" for="at6">GDP (Nominal)/Capita</label> 
                     <select class="form-control" id="at6">
                         <option>100%</option>
@@ -106,6 +118,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select> 
+                    <input type="checkbox" id="chk7">
                     <label class="control-label" for="at7">GDP (PPP)/Capita</label> 
                     <select class="form-control" id="at7">
                         <option>100%</option>
@@ -114,6 +127,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select> 
+                    <input type="checkbox" id="chk8">
                     <label class="control-label" for="at8">GINI Index</label> 
                     <select class="form-control" id="at8">
                         <option>100%</option>
@@ -122,6 +136,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select>
+                    <input type="checkbox" id="chk9">
                     <label class="control-label" for="at9">Education Expenditures</label> 
                     <select class="form-control" id="at9">
                         <option>100%</option>
@@ -130,6 +145,7 @@
                         <option>25%</option>
                         <option>0%</option>
                     </select>
+                    <input type="checkbox" id="chk10">
                     <label class="control-label" for="at10">Unemployment Rate</label> 
                     <select class="form-control" id="at10">
                         <option>100%</option>
@@ -142,6 +158,7 @@
             </div>
             <div class="col-sm-6">
               <form class="form-horizontal" id="scoreForm2">  
+                <input type="checkbox" id="chk11">
                 <label class="control-label" for="at11">Taxes and other Revenues</label> 
                 <select class="form-control" id="at11">
                     <option>100%</option>
@@ -150,6 +167,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk12">
                 <label class="control-label" for="at12">Inflation Rate</label> 
                 <select class="form-control" id="at12">
                     <option>100%</option>
@@ -158,6 +176,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk13">
                 <label class="control-label" for="at13">Birth Rate</label> 
                 <select class="form-control" id="at13">
                     <option>100%</option>
@@ -166,6 +185,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk14">
                 <label class="control-label" for="at14">Death Rate</label> 
                 <select class="form-control" id="at14">
                     <option>100%</option>
@@ -174,6 +194,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk15">
                 <label class="control-label" for="at15">Net Migration Rate</label> 
                 <select class="form-control" id="at15">
                     <option>100%</option>
@@ -182,6 +203,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk16">
                 <label class="control-label" for="at16">Maternal Mortality Rate</label> 
                 <select class="form-control" id="at16">
                     <option>100%</option>
@@ -190,6 +212,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk17">
                 <label class="control-label" for="at17">Infant Mortality Rate</label> 
                 <select class="form-control" id="at17">
                     <option>100%</option>
@@ -198,6 +221,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk18">
                 <label class="control-label" for="at18">Life Expectancy at Birth</label> 
                 <select class="form-control" id="at18">
                     <option>100%</option>
@@ -206,6 +230,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk19">
                 <label class="control-label" for="at19">Health Expenditures</label> 
                 <select class="form-control" id="at19">
                     <option>100%</option>
@@ -214,6 +239,7 @@
                     <option>25%</option>
                     <option>0%</option>
                 </select>
+                <input type="checkbox" id="chk20">
                 <label class="control-label" for="at20">HIV/AIDS - Deaths</label> 
                 <select class="form-control" id="at20">
                     <option>100%</option>
@@ -234,6 +260,9 @@
 <div class="col-sm-12 feature">
  <div class="well">
     <form role="form" name="cf">
+    <div>
+        <datalist id="countries"></datalist>
+    </div>
        <div class="form-group col-sm-6">
           <input type="text" class="form-control" id="country1" placeholder="First Country" list="countries">
       </div>
@@ -550,19 +579,16 @@
 </div>
 </div>
 <div class="col-sm-12">
-    <div id="al" class="alert alert-danger" data-alert="alert" style="display: none;">
+    <div id="al_missing" class="alert alert-danger" data-alert="alert" style="display: none;">
         <strong>Error!</strong> One or both search fields are empty.
     </div>
 </div>
+<div class="col-sm-12">
+    <div id="al_invalid" class="alert alert-danger" data-alert="alert" style="display: none;">
+        <strong>Error!</strong> One or both countries cannot be found.
+    </div>
 </div>
-
-<datalist id="countries">
-    <option value="Germany">
-    <option value="France">
-    <option value="Austria">
-    <option value="Spain">
-    <option value="Denmark">
-</datalist>
+</div>
 
 <script>
     $('[data-toggle="tooltip"]').tooltip({

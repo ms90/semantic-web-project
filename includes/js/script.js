@@ -1,16 +1,25 @@
 /*
-
-My Custom JS
-============
-
 Author:  Maxim Serebrianski
-Updated: 2014-10-31
-
 */
 
+var countryList = [];
 var wikiPageCountry = "";
 var IDvaluesOfEachDiv = "genInfoLeft genInfoRight scoresLeft scoresRight";
 var IDlist = IDvaluesOfEachDiv.split(" ");
+
+function loadCountryList(){
+	$.getJSON( "resources/countrylist.json", function(data) {
+		countryList = [];
+		$.each(data, function( key, val) {
+			countryList.push("<option value='" + val + "'>");
+		});
+	});
+	if (countryList != null) {
+		for (var i = 0; i < countryList.length; i++) {
+			$('#countries').append(countryList[i]);
+		}
+	}
+}
 
 function compare() {
 	count1 = document.getElementById("country1").value;
@@ -25,16 +34,32 @@ function compare() {
 function validateInput(c1, c2) {
     if (c1 == null || c1 == "" || c2 == null || c2 == "") {
     	hideDivs();
-    	showAlert();
+    	hideAlertInvalid();
+    	showAlertMissing();
     	setTimeout(function(){
-    		fadeOutAlert();
+    		fadeOutAlertMissing();
+    	}, 8000);
+    	return false;
+    } else if (checkCountry(c1) == false || checkCountry(c2) == false) {
+    	hideDivs();
+    	hideAlertMissing();
+    	showAlertInvalid();
+    	setTimeout(function(){
+    		fadeOutAlertInvalid();
     	}, 8000);
     	return false;
     } else {
-    	hideAlert();
+    	hideAlertMissing();
+    	hideAlertInvalid();
     	showDivs();
     	return true;
     }
+}
+
+function checkCountry(c) {
+	if ($.inArray(c, countryList) != -1) {
+		return true;
+	} else return false;
 }
 
 function showDivs() {
@@ -77,26 +102,48 @@ function runComp(c1, c2) {
 	//TODO
 }
 
-function showAlert() {
-	document.getElementById('al').style.opacity = 1;
-	document.getElementById('al').style.display = "";
+function showAlertMissing() {
+	document.getElementById('al_missing').style.opacity = 1;
+	document.getElementById('al_missing').style.display = "";
 }
 
-function fadeOutAlert() {
+function fadeOutAlertMissing() {
 	var op = 1;
 	var timer = setInterval(function () {
 		if (op <= 0.1){
 			clearInterval(timer);
-			document.getElementById('al').style.display = 'none';
+			document.getElementById('al_missing').style.display = 'none';
 		}
-		document.getElementById('al').style.opacity = op;
-		document.getElementById('al').style.filter = 'alpha(opacity=' + op * 100 + ")";
+		document.getElementById('al_missing').style.opacity = op;
+		document.getElementById('al_missing').style.filter = 'alpha(opacity=' + op * 100 + ")";
 		op -= op * 0.1;
 	}, 30);
 }
 
-function hideAlert() {
-	document.getElementById('al').style.display = "none";
+function hideAlertMissing() {
+	document.getElementById('al_missing').style.display = "none";
+}
+
+function showAlertInvalid() {
+	document.getElementById('al_invalid').style.opacity = 1;
+	document.getElementById('al_invalid').style.display = "";
+}
+
+function fadeOutAlertInvalid() {
+	var op = 1;
+	var timer = setInterval(function () {
+		if (op <= 0.1){
+			clearInterval(timer);
+			document.getElementById('al_invalid').style.display = 'none';
+		}
+		document.getElementById('al_invalid').style.opacity = op;
+		document.getElementById('al_invalid').style.filter = 'alpha(opacity=' + op * 100 + ")";
+		op -= op * 0.1;
+	}, 30);
+}
+
+function hideAlertInvalid() {
+	document.getElementById('al_invalid').style.display = "none";
 }
 
 function setValue(id, value) {
