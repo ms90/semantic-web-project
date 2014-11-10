@@ -2,23 +2,28 @@
 Author:  Maxim Serebrianski
 */
 
-var countryList = [];
+var ctr;
+var cList = [];
 var wikiPageCountry = "";
 var IDvaluesOfEachDiv = "genInfoLeft genInfoRight scoresLeft scoresRight";
 var IDlist = IDvaluesOfEachDiv.split(" ");
 
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 function loadCountryList(){
-	$.getJSON( "resources/countrylist.json", function(data) {
-		countryList = [];
-		$.each(data, function( key, val) {
-			countryList.push("<option value='" + val + "'>");
-		});
-	});
-	if (countryList != null) {
-		for (var i = 0; i < countryList.length; i++) {
-			$('#countries').append(countryList[i]);
+	$.ajax({
+		url: "resources/countries.json",
+		dataType: "text",
+		success: function(data) {
+			ctr = $.parseJSON(data);
+			for (var i in ctr) {
+				cList.push(ctr[i].country.toString());
+				$('#countries').append("<option value='" + ctr[i].country + "'>");
+			}
 		}
-	}
+	});
 }
 
 function compare() {
@@ -57,7 +62,7 @@ function validateInput(c1, c2) {
 }
 
 function checkCountry(c) {
-	if ($.inArray(c, countryList) != -1) {
+	if ($.inArray(c.capitalize(), cList) != -1) {
 		return true;
 	} else return false;
 }
