@@ -325,6 +325,9 @@ function runComp() {
 			compAtrHigh(i);
 		} else compAtrLow(i);
 	}
+	//Normalize to 1-10 scale
+	sc1 *= 0.5;
+	sc2 *= 0.5;
 	console.log("Score 1: " + sc1 + '\n' + "Score 2: " + sc2);
 }
 
