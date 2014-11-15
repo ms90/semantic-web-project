@@ -31,8 +31,9 @@ function compare() {
 	count2 = document.getElementById("country2").value;
 
 	if (validateInput(count1, count2)) {
-		runComp(count1, count2);
 		setValues();
+		runComp();
+		setScores();
 	}
 }
 
@@ -103,10 +104,6 @@ function openWikiPage() {
 	window.open(url,'_blank');
 }
 
-function runComp(c1, c2) {
-	//TODO
-}
-
 function showAlertMissing() {
 	document.getElementById('al_missing').style.opacity = 1;
 	document.getElementById('al_missing').style.display = "";
@@ -152,7 +149,7 @@ function hideAlertInvalid() {
 }
 
 function setValue(id, value) {
-	 document.getElementById(id).innerHTML = value;
+	 document.getElementById(id).innerHTML = "" + value;
 }
 
 function setValues() {
@@ -192,7 +189,6 @@ function setValues() {
 	setValue('l18', 42);
 	setValue('l19', 42);
 	setValue('l20', 42);
-	setValue('sc1', 'Placeholder');
 
 	setValue('r1', 42);
 	setValue('r2', 42);
@@ -214,5 +210,125 @@ function setValues() {
 	setValue('r18', 42);
 	setValue('r19', 42);
 	setValue('r20', 42);
-	setValue('sc2', 'Placeholder');
+}
+
+//--------------------------------------------------------------------------------------------------
+//Comparison functionality
+
+//Attribute values for c1 and c2, attribute weights and inversion flag
+var c1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+var c2 = [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1];
+var pct = [];
+var inv = [];
+
+//Boolean array that saves for each attribute if "higher = better" --> TRUE or not --> FALSE
+var highEqGood = [true,true,false,true,true,true,true,false,true,false,false,false,true,false,false,false,false,true,true,false];
+
+//Final scores for c1 and c2
+var sc1;
+var sc2;
+
+
+//Fills c1 array with all attribute values
+function fillC1() {
+	//TODO: Get values from SPARQL query and CIA factbook query
+	//console.log("C1 Values: " + c1);
+}
+
+//Fills c2 array with all attribute values
+function fillC2() {
+	//TODO: Get values from SPARQL query and CIA factbook query
+	//console.log("C2 Values: " + c2);
+}
+
+//Fills array with user weights
+function fillPct() {
+	for (var i=0; i<20; i++) {
+		pct[i] = parseFloat(document.getElementById('at' + (i+1)).value);
+	}
+	//console.log("Percent: " + pct);
+}
+
+//Fills array with inversion flag, wenn gesetzt --> TRUE, sonst --> FALSE
+function fillInv() {
+	for (var i=0; i<20; i++) {
+		if (document.getElementById('chk' + (i+1)).checked) {
+			inv[i] = true;
+		} else inv[i] = false;
+	}
+	//console.log("Inversion: " + inv);
+}
+
+//Updates final scores with the assumption that higher = better
+function compAtrHigh(i) {
+	switch (true) {
+		case c1[i] > c2[i]:
+			if (!inv[i]) {
+				sc1 += 1 * pct[i];
+				sc2 += (c2[i]/c1[i]) * pct[i];
+			} else {
+				sc1 += (c2[i]/c1[i]) * pct[i];
+				sc2 += 1 * pct[i];
+			} break;
+		case c1[i] < c2[i]:
+			if (!inv[i]) {
+				sc1 += (c1[i]/c2[i]) * pct[i];
+				sc2 += 1 * pct[i];
+			} else {
+				sc1 += 1 * pct[i];
+				sc2 += (c1[i]/c2[i]) * pct[i];
+			} break;
+		case c1[i] = c2[i]:
+			sc1 += 1 * pct[i];
+			sc2 += 1 * pct[i];
+			break;
+	}
+}
+
+//Updates final scores with the assumption that lower = better
+function compAtrLow(i) {
+	switch (true) {
+		case c1[i] > c2[i]:
+			if (!inv[i]) {
+				sc1 += (c2[i]/c1[i]) * pct[i];
+				sc2 += 1 * pct[i];
+			} else {
+				sc1 += 1 * pct[i];
+				sc2 += (c2[i]/c1[i]) * pct[i];
+			} break;
+		case c1[i] < c2[i]:
+			if (!inv[i]) {
+				sc1 += 1 * pct[i];
+				sc2 += (c1[i]/c2[i]) * pct[i];
+			} else {
+				sc1 += (c1[i]/c2[i]) * pct[i];
+				sc2 += 1 * pct[i];
+			} break;
+		case c1[i] = c2[i]:
+			sc1 += 1 * pct[i];
+			sc2 += 1 * pct[i];
+			break;
+	}
+}
+
+//Main compare function
+function runComp() {
+	fillC1();
+	fillC2();
+	fillPct();
+	fillInv();
+	sc1 = 0;
+	sc2 = 0;
+
+	for (var i=0; i<20; i++) {
+		if (highEqGood[i]) {
+			compAtrHigh(i);
+		} else compAtrLow(i);
+	}
+	console.log("Score 1: " + sc1 + '\n' + "Score 2: " + sc2);
+}
+
+function setScores() {
+	setValue('sc1', sc1.toFixed(2));
+	setValue('sc2', sc2.toFixed(2));
 }
