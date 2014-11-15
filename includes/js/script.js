@@ -38,25 +38,40 @@ function compare() {
 }
 
 function validateInput(c1, c2) {
+	//Check if input fields are empty
     if (c1 == null || c1 == "" || c2 == null || c2 == "") {
     	hideDivs();
-    	hideAlertInvalid();
-    	showAlertMissing();
+    	hideAlert('al_invalid');
+    	hideAlert('al_same');
+    	showAlert('al_missing');
     	setTimeout(function(){
-    		fadeOutAlertMissing();
+    		fadeOutAlert('al_missing');
     	}, 8000);
     	return false;
+    	//Check if input fields are valid
     } else if (checkCountry(c1) == false || checkCountry(c2) == false) {
     	hideDivs();
-    	hideAlertMissing();
-    	showAlertInvalid();
+    	hideAlert('al_missing');
+    	hideAlert('al_same');
+    	showAlert('al_invalid');
     	setTimeout(function(){
-    		fadeOutAlertInvalid();
+    		fadeOutAlert('al_invalid');
+    	}, 8000);
+    	return false;
+    	//Check if input fields are the same
+    } else if (c1 == c2) {
+    	hideDivs();
+    	hideAlert('al_missing');
+    	hideAlert('al_invalid');
+    	showAlert('al_same');
+    	setTimeout(function(){
+    		fadeOutAlert('al_same');
     	}, 8000);
     	return false;
     } else {
-    	hideAlertMissing();
-    	hideAlertInvalid();
+    	hideAlert('al_missing');
+    	hideAlert('al_invalid');
+    	hideAlert('al_same');
     	showDivs();
     	return true;
     }
@@ -104,52 +119,30 @@ function openWikiPage() {
 	window.open(url,'_blank');
 }
 
-function showAlertMissing() {
-	document.getElementById('al_missing').style.opacity = 1;
-	document.getElementById('al_missing').style.display = "";
+function showAlert(alert) {
+	document.getElementById(alert).style.opacity = 1;
+	document.getElementById(alert).style.display = "";
 }
 
-function fadeOutAlertMissing() {
+function fadeOutAlert(alert) {
 	var op = 1;
 	var timer = setInterval(function () {
 		if (op <= 0.1){
 			clearInterval(timer);
-			document.getElementById('al_missing').style.display = 'none';
+			document.getElementById(alert).style.display = 'none';
 		}
-		document.getElementById('al_missing').style.opacity = op;
-		document.getElementById('al_missing').style.filter = 'alpha(opacity=' + op * 100 + ")";
+		document.getElementById(alert).style.opacity = op;
+		document.getElementById(alert).style.filter = 'alpha(opacity=' + op * 100 + ")";
 		op -= op * 0.1;
 	}, 30);
 }
 
-function hideAlertMissing() {
-	document.getElementById('al_missing').style.display = "none";
-}
-
-function showAlertInvalid() {
-	document.getElementById('al_invalid').style.opacity = 1;
-	document.getElementById('al_invalid').style.display = "";
-}
-
-function fadeOutAlertInvalid() {
-	var op = 1;
-	var timer = setInterval(function () {
-		if (op <= 0.1){
-			clearInterval(timer);
-			document.getElementById('al_invalid').style.display = 'none';
-		}
-		document.getElementById('al_invalid').style.opacity = op;
-		document.getElementById('al_invalid').style.filter = 'alpha(opacity=' + op * 100 + ")";
-		op -= op * 0.1;
-	}, 30);
-}
-
-function hideAlertInvalid() {
-	document.getElementById('al_invalid').style.display = "none";
+function hideAlert(alert) {
+	document.getElementById(alert).style.display = "none";
 }
 
 function setValue(id, value) {
-	 document.getElementById(id).innerHTML = "" + value;
+	 document.getElementById(id).innerHTML = value;
 }
 
 function setValues() {

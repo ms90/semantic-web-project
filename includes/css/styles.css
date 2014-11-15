@@ -4,7 +4,6 @@ My Custom CSS
 =============
 
 Author:  Maxim Serebrianski
-Updated: 2014-10-12
 
 /* Portrait & landscape phone */
 @media (max-width: 480px) {
@@ -20,3 +19,8 @@ Updated: 2014-10-12
 @media (min-width: 1200px) {
 	
 }
+
+select {
+  text-align: center;
+}
+

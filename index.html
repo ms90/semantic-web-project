@@ -45,7 +45,6 @@
           countries by weighted attributes.</small>
       </h1>
   </div>
-  <!--<p class="lead">Some explanatory text...</p>-->
 </div>
 </div>
 <div class="modal fade" id="advScoring">
@@ -54,7 +53,8 @@
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
                 <h3 class="modal-title">Advanced Attribute Selection</h3>
-                <p style="color:red">Check the box next to an attribute to invert its scoring behavior. Every attribute makes a common sense assumption on how to evaluate it, e.g. higher population density equals higher score.</p>
+                <p>Here you can select the importance of each attribute for the final score. To disregard an attribute completely select '0'.</p>
+                <p style="color:red">Check the box next to an attribute to invert its scoring behavior.</p>
             </div>
             <div class="modal-body row">
                 <div class="col-sm-6">
@@ -382,83 +382,83 @@
  </div>
  <div class="panel-body">
      <ul class="list-group">
-        <li class="list-group-item" data-toggle="tooltip" title="The ratio of populated place to the total area.">
+        <li class="list-group-item" data-toggle="tooltip" title="The ratio of populated place to the total area. [High = Good]">
             <span class="badge" id="l1"></span>
             Populated Place/Total Area
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The population density is the ratio of residents per square kilometer.">
+        <li class="list-group-item" data-toggle="tooltip" title="The population density is the ratio of residents per square kilometer. [High = Good]">
             <span class="badge" id="l2"></span>
             Population Density
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of area covered in water.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of area covered in water. [Low = Good]">
             <span class="badge" id="l3"></span>
             Percentage of Area is Water
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The total length of roadways in kilometers.">
+        <li class="list-group-item" data-toggle="tooltip" title="The total length of roadways in kilometers. [High = Good]">
             <span class="badge" id="l4"></span>
             Roadways
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The total length of railways in kilometers.">
+        <li class="list-group-item" data-toggle="tooltip" title="The total length of railways in kilometers. [High = Good]">
             <span class="badge" id="l5"></span>
             Railways
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The nominal GDP per capita without inflation adjustment.">
+        <li class="list-group-item" data-toggle="tooltip" title="The nominal GDP per capita without inflation adjustment. [High = Good]">
             <span class="badge" id="l6"></span>
             GDP (Nominal)/Capita
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The purchasing power parity value of the GDP per capita.">
+        <li class="list-group-item" data-toggle="tooltip" title="The purchasing power parity value of the GDP per capita. [High = Good]">
             <span class="badge" id="l7"></span>
             GDP (PPP)/Capita
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The GINI index is a measure of income distribution of a nation's residents.">
+        <li class="list-group-item" data-toggle="tooltip" title="The GINI index is a measure of income distribution of a nation's residents. [Low = Good]">
             <span class="badge" id="l8"></span>
             GINI Index
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of the nation's GDP that is spent on education.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of the nation's GDP that is spent on education. [High = Good]">
             <span class="badge" id="l9"></span>
             Education Expenditures
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of people without employment.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of people without employment. [Low = Good]">
             <span class="badge" id="l10"></span>
             Unemployment Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of a nation's GDP covered by taxes and other revenues.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of a nation's GDP covered by taxes and other revenues. [Low = Good]">
             <span class="badge" id="l11"></span>
             Taxes and other Revenues
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Inflation is a sustained increase in the general price level of goods and services in an economy over a period of time.">
+        <li class="list-group-item" data-toggle="tooltip" title="Inflation is a sustained increase in the general price level of goods and services in an economy over a period of time. [Low = Good]">
             <span class="badge" id="l12"></span>
             Inflation Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Birth rate compares the average annual number of births during a year per 1,000 persons in the population at midyear.">
+        <li class="list-group-item" data-toggle="tooltip" title="Birth rate compares the average annual number of births during a year per 1,000 persons in the population at midyear. [High = Good]">
             <span class="badge" id="l13"></span>
             Birth Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Death rate compares the average annual number of deaths during a year per 1,000 population at midyear.">
+        <li class="list-group-item" data-toggle="tooltip" title="Death rate compares the average annual number of deaths during a year per 1,000 population at midyear. [Low = Good]">
             <span class="badge" id="l14"></span>
             Death Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Net migration rate compares the difference between the number of persons entering and leaving a country during the year per 1,000 persons (based on midyear population).">
+        <li class="list-group-item" data-toggle="tooltip" title="Net migration rate compares the difference between the number of persons entering and leaving a country during the year per 1,000 persons (based on midyear population). [Low = Good]">
             <span class="badge" id="l15"></span>
             Net Migration Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The Maternal mortality rate is the annual number of female deaths per 100,000 live births from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes).">
+        <li class="list-group-item" data-toggle="tooltip" title="The Maternal mortality rate is the annual number of female deaths per 100,000 live births from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes). [Low = Good]">
             <span class="badge" id="l16"></span>
             Maternal Mortality Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Infant mortality rate compares the number of deaths of infants under one year old in a given year per 1,000 live births in the same year. This rate is often used as an indicator of the level of health in a country.">
+        <li class="list-group-item" data-toggle="tooltip" title="Infant mortality rate compares the number of deaths of infants under one year old in a given year per 1,000 live births in the same year. This rate is often used as an indicator of the level of health in a country. [Low = Good]">
             <span class="badge" id="l17"></span>
             Infant Mortality Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Life expectancy at birth compares the average number of years to be lived by a group of people born in the same year, if mortality at each age remains constant in the future.">
+        <li class="list-group-item" data-toggle="tooltip" title="Life expectancy at birth compares the average number of years to be lived by a group of people born in the same year, if mortality at each age remains constant in the future. [High = Good]">
             <span class="badge" id="l18"></span>
             Life Expectancy at Birth
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Health expenditures provides the total expenditure on health as a percentage of GDP.">
+        <li class="list-group-item" data-toggle="tooltip" title="Health expenditures provides the total expenditure on health as a percentage of GDP. [High = Good]">
             <span class="badge" id="l19"></span>
             Health Expenditures
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="HIV/AIDS - deaths compares the number of adults and children who died of AIDS during a given calendar year.">
+        <li class="list-group-item" data-toggle="tooltip" title="HIV/AIDS - deaths compares the number of adults and children who died of AIDS during a given calendar year. [Low = Good]">
             <span class="badge" id="l20"></span>
             HIV/AIDS - Deaths
         </li>
@@ -481,83 +481,83 @@
  </div>
  <div class="panel-body">
      <ul class="list-group">
-        <li class="list-group-item" data-toggle="tooltip" title="The ratio of populated place to the total area.">
+        <li class="list-group-item" data-toggle="tooltip" title="The ratio of populated place to the total area. [High = Good]">
             <span class="badge" id="r1"></span>
             Populated Place/Total Area
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The population density is the ratio of residents per square kilometer.">
+        <li class="list-group-item" data-toggle="tooltip" title="The population density is the ratio of residents per square kilometer. [High = Good]">
             <span class="badge" id="r2"></span>
             Population Density
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of area covered in water.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of area covered in water. [Low = Good]">
             <span class="badge" id="r3"></span>
             Percentage of Area is Water
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The total length of roadways in kilometers.">
+        <li class="list-group-item" data-toggle="tooltip" title="The total length of roadways in kilometers. [High = Good]">
             <span class="badge" id="r4"></span>
             Roadways
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The total length of railways in kilometers.">
+        <li class="list-group-item" data-toggle="tooltip" title="The total length of railways in kilometers. [High = Good]">
             <span class="badge" id="r5"></span>
             Railways
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The nominal GDP per capita without inflation adjustment.">
+        <li class="list-group-item" data-toggle="tooltip" title="The nominal GDP per capita without inflation adjustment. [High = Good]">
             <span class="badge" id="r6"></span>
             GDP (Nominal)/Capita
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The purchasing power parity value of the GDP per capita.">
+        <li class="list-group-item" data-toggle="tooltip" title="The purchasing power parity value of the GDP per capita. [High = Good]">
             <span class="badge" id="r7"></span>
             GDP (PPP)/Capita
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The GINI index is a measure of income distribution of a nation's residents.">
+        <li class="list-group-item" data-toggle="tooltip" title="The GINI index is a measure of income distribution of a nation's residents. [Low = Good]">
             <span class="badge" id="r8"></span>
             GINI Index
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of the nation's GDP that is spent on education.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of the nation's GDP that is spent on education. [High = Good]">
             <span class="badge" id="r9"></span>
             Education Expenditures
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of people without employment.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of people without employment. [Low = Good]">
             <span class="badge" id="r10"></span>
             Unemployment Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The percentage of a nation's GDP covered by taxes and other revenues.">
+        <li class="list-group-item" data-toggle="tooltip" title="The percentage of a nation's GDP covered by taxes and other revenues. [Low = Good]">
             <span class="badge" id="r11"></span>
             Taxes and other Revenues
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Inflation is a sustained increase in the general price level of goods and services in an economy over a period of time.">
+        <li class="list-group-item" data-toggle="tooltip" title="Inflation is a sustained increase in the general price level of goods and services in an economy over a period of time. [Low = Good]">
             <span class="badge" id="r12"></span>
             Inflation Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Birth rate compares the average annual number of births during a year per 1,000 persons in the population at midyear.">
+        <li class="list-group-item" data-toggle="tooltip" title="Birth rate compares the average annual number of births during a year per 1,000 persons in the population at midyear. [High = Good]">
             <span class="badge" id="r13"></span>
             Birth Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Death rate compares the average annual number of deaths during a year per 1,000 population at midyear.">
+        <li class="list-group-item" data-toggle="tooltip" title="Death rate compares the average annual number of deaths during a year per 1,000 population at midyear. [Low = Good]">
             <span class="badge" id="r14"></span>
             Death Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Net migration rate compares the difference between the number of persons entering and leaving a country during the year per 1,000 persons (based on midyear population).">
+        <li class="list-group-item" data-toggle="tooltip" title="Net migration rate compares the difference between the number of persons entering and leaving a country during the year per 1,000 persons (based on midyear population). [Low = Good]">
             <span class="badge" id="r15"></span>
             Net Migration Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="The Maternal mortality rate is the annual number of female deaths per 100,000 live births from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes).">
+        <li class="list-group-item" data-toggle="tooltip" title="The Maternal mortality rate is the annual number of female deaths per 100,000 live births from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes). [Low = Good]">
             <span class="badge" id="r16"></span>
             Maternal Mortality Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Infant mortality rate compares the number of deaths of infants under one year old in a given year per 1,000 live births in the same year. This rate is often used as an indicator of the level of health in a country.">
+        <li class="list-group-item" data-toggle="tooltip" title="Infant mortality rate compares the number of deaths of infants under one year old in a given year per 1,000 live births in the same year. This rate is often used as an indicator of the level of health in a country. [Low = Good]">
             <span class="badge" id="r17"></span>
             Infant Mortality Rate
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Life expectancy at birth compares the average number of years to be lived by a group of people born in the same year, if mortality at each age remains constant in the future.">
+        <li class="list-group-item" data-toggle="tooltip" title="Life expectancy at birth compares the average number of years to be lived by a group of people born in the same year, if mortality at each age remains constant in the future. [High = Good]">
             <span class="badge" id="r18"></span>
             Life Expectancy at Birth
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="Health expenditures provides the total expenditure on health as a percentage of GDP.">
+        <li class="list-group-item" data-toggle="tooltip" title="Health expenditures provides the total expenditure on health as a percentage of GDP. [High = Good]">
             <span class="badge" id="r19"></span>
             Health Expenditures
         </li>
-        <li class="list-group-item" data-toggle="tooltip" title="HIV/AIDS - deaths compares the number of adults and children who died of AIDS during a given calendar year.">
+        <li class="list-group-item" data-toggle="tooltip" title="HIV/AIDS - deaths compares the number of adults and children who died of AIDS during a given calendar year. [Low = Good]">
             <span class="badge" id="r20"></span>
             HIV/AIDS - Deaths
         </li>
@@ -581,6 +581,11 @@
 <div class="col-sm-12">
     <div id="al_invalid" class="alert alert-danger" data-alert="alert" style="display: none;">
         <strong>Error!</strong> One or both countries cannot be found.
+    </div>
+</div>
+<div class="col-sm-12">
+    <div id="al_same" class="alert alert-danger" data-alert="alert" style="display: none;">
+        <strong>Error!</strong> The selected countries are the same.
     </div>
 </div>
 </div>
