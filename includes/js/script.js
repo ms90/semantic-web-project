@@ -1,12 +1,16 @@
-/*
-Author:  Maxim Serebrianski
+﻿/*
+Authors:  Maxim Serebrianski & Marcus Szkoc
 */
 
-var ctr;
+var ctr,education1,education2,unemployment1,unemployment2,taxes1,taxes2,inflation1,inflation2,birth1,birht2,death1,death2,netMigration1,netMigration2,mMortality1,mMortality2,iMortality1,iMortality2,expectancy1,expectancy2,healthExpenses1,healthExpenses2,hivDeaths1,hivDeaths2;
 var cList = [];
 var wikiPageCountry = "";
 var IDvaluesOfEachDiv = "genInfoLeft genInfoRight scoresLeft scoresRight";
 var IDlist = IDvaluesOfEachDiv.split(" ");
+
+var country1='Lesotho';
+var country2='Germany';
+
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -190,7 +194,7 @@ function setValues() {
 	setValue('l6', 42);
 	setValue('l7', 42);
 	setValue('l8', 42);
-	setValue('l9', 42);
+	setValue('l9', education1);
 	setValue('l10', 42);
 	setValue('l11', 42);
 	setValue('l12', 42);
@@ -200,7 +204,7 @@ function setValues() {
 	setValue('l16', 42);
 	setValue('l17', 42);
 	setValue('l18', 42);
-	setValue('l19', 42);
+	setValue('l19', healthExpenses1);
 	setValue('l20', 42);
 
 	setValue('r1', 42);
@@ -211,7 +215,7 @@ function setValues() {
 	setValue('r6', 42);
 	setValue('r7', 42);
 	setValue('r8', 42);
-	setValue('r9', 42);
+	setValue('r9', education2);
 	setValue('r10', 42);
 	setValue('r11', 42);
 	setValue('r12', 42);
@@ -221,7 +225,7 @@ function setValues() {
 	setValue('r16', 42);
 	setValue('r17', 42);
 	setValue('r18', 42);
-	setValue('r19', 42);
+	setValue('r19', healthExpenses2);
 	setValue('r20', 42);
 }
 
@@ -345,7 +349,310 @@ function runComp() {
 	console.log("Score 1: " + sc1 + '\n' + "Score 2: " + sc2);
 }
 
-function setScores() {
-	setValue('sc1', sc1.toFixed(2));
-	setValue('sc2', sc2.toFixed(2));
-}
+
+if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.open("GET","resources/factbook.xml",false);
+            xmlhttp.send();
+            xmlDoc=xmlhttp.responseXML;
+       
+            //Country To CIA Shortcut
+            
+            function countryTranslation(country){
+            switch (country) {
+            case 'Lesotho': return country = "lt"; break;
+            case 'Cuba': return country = "cu"; break;
+            case 'Marshall Islands': return country = "rm"; break;
+            case 'Kiribati': return country = "kr"; break;
+            case 'Botswana': return country = "bc"; break;
+            case 'Sao Tome and Principe': return country = "tp"; break;
+            case 'Timor-Leste': return country = "tt"; break;
+            case 'Denmark': return country = "da"; break;
+            case 'Namibia': return country = "wa"; break;
+            case 'Moldova': return country = "md"; break;
+            case 'Djibouti': return country = "dj"; break;
+            case 'Swaziland': return country = "wz"; break;
+            case 'Ghana': return country = "gh"; break;
+            case 'Iceland': return country = "ic"; break;
+            case 'Comoros': return country = "cn"; break;
+            case 'New Zealand': return country = "nz"; break;
+            case 'Palau': return country = "ps"; break;
+            case 'Solomon Islands': return country = "bp"; break;
+            case 'Cyprus': return country = "cy"; break;
+            case 'Sweden': return country = "sw"; break;
+            case 'Norway': return country = "no"; break;
+            case 'Venezuela': return country = "ve"; break;
+            case 'Malta': return country = "mt"; break;
+            case 'Bolivia': return country = "bl"; break;
+            case 'Kyrgyzstan': return country = "kg"; break;
+            case 'Maldives': return country = "mv"; break;
+            case 'Finland': return country = "fi"; break;
+            case 'Kenya': return country = "ke"; break;
+            case 'Belize': return country = "bh"; break;
+            case 'Belgium': return country = "be"; break;
+            case 'Ireland': return country = "ei"; break;
+            case 'Argentinia': return country = "ar"; break;
+            case 'Vietnam': return country = "vm"; break;
+            case 'Costa Rica': return country = "cs"; break;
+            case 'Ukraine': return country = "up"; break;
+            case 'United Kingdom': return country = "uk"; break;
+            case 'Tanzania': return country = "tz"; break;
+            case 'Tunisia': return country = "ts"; break;
+            case 'Republic of the Congo': return country = "cf"; break;
+            case 'Jamaica': return country = "jm"; break;
+            case 'Aruba': return country = "aa"; break;          
+            case 'South Africa': return country = "sf"; break;
+            case 'France': return country = "fr"; break;
+            case 'Austria': return country = "au"; break;
+            case 'Netherlands': return country = "nl"; break;
+            case 'Malaysia': return country = "my"; break;
+            case 'Thailand': return country = "th"; break;
+            case 'Samoa': return country = "ws"; break;
+            case 'Brazil': return country = "br"; break;
+            case 'Burundi': return country = "by"; break;
+            case 'Slovenia': return country = "si"; break;
+            case 'Estonia': return country = "en"; break;
+            case 'Senegal': return country = "sg"; break;
+            case 'Barbados': return country = "bb"; break;
+            case 'Portugal': return country = "po"; break;
+            case 'Australia': return country = "as"; break;
+            case 'Israel': return country = "is"; break;
+            case 'Mongolia': return country = "mg"; break;
+            case 'Morocco': return country = "mo"; break;
+            case 'Malawi': return country = "mi"; break;
+            case 'Lithuania': return country = "lh"; break;
+            case 'Canada': return country = "ca"; break;
+            case 'United States': return country = "us"; break;
+            case 'Benin': return country = "bn"; break;
+            case 'Poland': return country = "pl"; break;
+            case 'Switzerland': return country = "sz"; break;
+            case 'Yemen': return country = "ym"; break;
+            case 'Saudi Arabia': return country = "sa"; break;
+            case 'Saint Vincent and the Grenadines': return country = "vc"; break;
+            case 'Syria': return country = "sy"; break;
+            case 'Belarus': return country = "bo"; break;
+            case 'Mexico': return country = "mx"; break;
+            case 'Rwanda': return country = "rw"; break;
+            case 'Germany': return country = "gm"; break;
+            case 'South Korea': return country = "ks"; break;
+            case 'Cabo Verde': return country = "cv"; break;
+            case 'Latvia': return country = "lg"; break;
+            case 'Mozambique': return country = "mz"; break;
+            case 'Vanuatu': return country = "nh"; break;
+            case 'Spain': return country = "sp"; break;
+            case 'Hungary': return country = "hu"; break;           
+            case 'Serbia': return country = "ri"; break;
+            case 'Mali': return country = "ml"; break;
+            case 'Paraguay': return country = "pa"; break;
+            case 'Ethiopia': return country = "et"; break;
+            case 'Bhutan': return country = "bt"; break;
+            case 'Nepal': return country = "np"; break;
+            case 'Nicaragua': return country = "nu"; break;
+            case "Cote d'Ivoire": return country = "iv"; break;
+            case 'Chile': return country = "ci"; break;
+            case 'Togo': return country = "to"; break;
+            case 'Uruguay': return country = "uy"; break;
+            case 'Italy': return country = "it"; break;
+            case 'Ecuador': return country = "ec"; break;
+            case 'Colombia': return country = "co"; break;
+            case 'British Virgin Islands': return country = "vi"; break;
+            case 'Algeria': return country = "ag"; break;
+            case 'Kosovo': return country = "kv"; break;
+            case 'Croatia': return country = "hr"; break;
+            case 'Oman': return country = "mu"; break;
+            case 'Niger': return country = "ng"; break;
+            case 'Fiji': return country = "fj"; break;
+            case 'Slovakia': return country = "lo"; break;
+            case 'Romania': return country = "ro"; break;
+            case 'Saint Kitts and Nevis': return country = "sc"; break;
+            case 'Czech Republic': return country = "ez"; break;
+            case 'Saint Lucia': return country = "st"; break;
+            case 'Bulgaria': return country = "bu"; break;
+            case 'Gambia': return country = "ga"; break;
+            case 'Russia': return country = "rs"; break;
+            case 'Greece': return country = "gr"; break;
+            case 'Grenada': return country = "gj"; break;
+            case 'Tonga': return country = "tn"; break;
+            case 'Tajikistan': return country = "ti"; break;
+            case 'Japan': return country = "ja"; break;
+            case 'Kuwait': return country = "ku"; break;
+            case 'Egypt': return country = "eg"; break;
+            case 'Luxembourg': return country = "lu"; break;
+            case 'Iran': return country = "ir"; break;
+            case 'Mauritania': return country = "mr"; break;
+            case 'Seychelles': return country = "se"; break;     
+            case 'Panama': return country = "pm"; break;
+            case 'Mauritius': return country = "mp"; break;
+            case 'Hong Kong': return country = "hk"; break;
+            case 'Dominica': return country = "do"; break;
+            case 'Brunei': return country = "bx"; break;
+            case 'Angola': return country = "ao"; break;
+            case 'Burkina Faso': return country = "uv"; break;
+            case 'El Salvador': return country = "es"; break;
+            case 'Albania': return country = "al"; break;
+            case 'Uganda': return country = "ug"; break;
+            case 'Armenia': return country = "am"; break;
+            case 'Cameroon': return country = "cm"; break;
+            case 'India': return country = "in"; break;
+            case 'Trinidad and Tobago': return country = "td"; break;
+            case 'Guyana': return country = "gy"; break;
+            case 'Cook Islands': return country = "cw"; break;
+            case 'Kazakhstan': return country = "kz"; break;
+            case 'Guatemala': return country = "gt"; break;
+            case 'Singapore': return country = "sn"; break;
+            case 'Sierra Leone': return country = "sl"; break;
+            case 'Turkey': return country = "tu"; break;
+            case 'Indonesia': return country = "id"; break;
+            case 'Liberia': return country = "li"; break;
+            case 'Peru': return country = "pe"; break;
+            case 'Anguilla': return country = "av"; break;
+            case 'Laos': return country = "la"; break;
+            case 'Macau': return country = "mc"; break;
+            case 'Philippines': return country = "rp"; break;
+            case 'Madagascar': return country = "ma"; break;
+            case 'Bermuda': return country = "bd"; break;
+            case 'Cambodia': return country = "cb"; break;
+            case 'Bahrain': return country = "ba"; break;
+            case 'Qatar': return country = "qa"; break;
+            case 'Zimbabwe': return country = "zi"; break;
+            case 'Guinea': return country = "gv"; break;
+            case 'Democratic Republic of the Congo': return country = "cg"; break;
+            case 'Azerbaijan': return country = "aj"; break;
+            case 'Antigua and Barbuda': return country = "ac"; break;
+            case 'Chad': return country = "cd"; break;
+            case 'Bangladesh': return country = "bg"; break;
+            case 'Lebanon': return country = "le"; break;
+            case 'Dominican Republic': return country = "dr"; break;
+            case 'Pakistan': return country = "pk"; break;
+            case 'Eritrea': return country = "er"; break;
+            case 'Liechtenstein': return country = "ls"; break;
+            case 'Georgia': return country = "gg"; break;
+            case 'Sri Lanka': return country = "ce"; break;
+            case 'Monaco': return country = "mn"; break;
+            case 'Zambia': return country = "za"; break;
+            case 'Central African Republic': return country = "ct"; break;
+            case 'Burma': return country = "bm"; break;
+            case 'Equatorial Guinea': return country = "ek"; break;
+            
+        } }
+            
+            
+            //Education expenditures
+            function education(country) {
+            	   for (var i=1, max=999; i < max; i++) {
+                   	if (country === xmlDoc.getElementById('f2206').childNodes[i].getAttributeNode('country').value)
+                	   {   return xmlDoc.getElementById('f2206').childNodes[i].getAttributeNode('number').value;
+                           break;
+                	   }}}
+
+            //UNemployment Rate
+            function unemployment(country) {
+            	   for (var i=1, max=999; i < max; i++) {
+                   	if (country === xmlDoc.getElementById('f2129').childNodes[i].getAttributeNode('country').value)
+                	   {   return xmlDoc.getElementById('f2129').childNodes[i].getAttributeNode('number').value;
+                           break;
+                	   }}}
+            
+            //Taxes and other revenues
+            function taxes(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2221').childNodes[i].getAttributeNode('country').value)
+             	   {    return xmlDoc.getElementById('f2221').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+          
+            //Inflation rate (consumer prices)
+            function inflation(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2092').childNodes[i].getAttributeNode('country').value)
+             	   {    return xmlDoc.getElementById('f2092').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+         
+         
+            //Birth rate
+            function birth(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2054').childNodes[i].getAttributeNode('country').value)
+             	   {    return xmlDoc.getElementById('f2054').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+           
+            
+            //Death rate
+            function death(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2066').childNodes[i].getAttributeNode('country').value)
+             	   {    return xmlDoc.getElementById('f2066').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            //Net migration rate
+            function migration(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2112').childNodes[i].getAttributeNode('country').value)
+             	   {     return xmlDoc.getElementById('f2112').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            
+            //Maternal mortality rate
+            function maternalMortality(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2223').childNodes[i].getAttributeNode('country').value)
+             	   {     return xmlDoc.getElementById('f2223').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            //Infant mortality rate
+            function infantMoratilty(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2091').childNodes[i].getAttributeNode('country').value)
+             	   {     return xmlDoc.getElementById('f2091').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            
+            //Life expectancy at birth
+            function expectancy(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2102').childNodes[i].getAttributeNode('country').value)
+             	   {     return xmlDoc.getElementById('f2102').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            //Health expenditures
+            function healthExpenses(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2225').childNodes[i].getAttributeNode('country').value)
+             	   {     return xmlDoc.getElementById('f2225').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            //HIV/AIDS - deaths
+            function hivDeaths(country) {
+         	   for (var i=1, max=999; i < max; i++) {
+                if (country === xmlDoc.getElementById('f2157').childNodes[i].getAttributeNode('country').value)
+             	   {     return xmlDoc.getElementById('f2157').childNodes[i].getAttributeNode('number').value;
+                        break;
+             	   }}}
+            
+            country1=countryTranslation(country1);
+            country2=countryTranslation(country2);
+            
+            education1=education(country1);
+            education2=education(country2);
+            healthExpenses1=healthExpenses(country1);
+            healthExpenses2=healthExpenses(country2);
+            
+            function setScores() {
+            	setValue('sc1', sc1.toFixed(2));
+            	setValue('sc2', sc2.toFixed(2));
+            }
