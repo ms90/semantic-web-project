@@ -2,16 +2,8 @@
 Authors:  Maxim Serebrianski & Marcus Szkoc
 */
 
-var ctr;
-var cList = [], cList_s = [], cList_i = [];
-var wikiPageCountry = "";
-var IDvaluesOfEachDiv = "genInfoLeft genInfoRight scoresLeft scoresRight";
-var IDlist = IDvaluesOfEachDiv.split(" ");
-
-var c1_n = 'Lesotho';
-var c2_n = 'Germany';
-var c1_sc, c2_sc, c1_id, c2_id;
-
+var ctr, c1_sc, c2_sc, c1_id, c2_id, wikiPageCountry;
+var cList = [], cList_s = [], cList_i = [], IDlist = ["genInfoLeft", "genInfoRight", "scoresLeft", "scoresRight"];
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
