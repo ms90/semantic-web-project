@@ -1,6 +1,5 @@
-
 function dbpediaID () {
-  var url = "http://dbpedia.org/sparql";
+  var url = 'http://dbpedia.org/snorql/';
   var query = '\
   PREFIX dbpprop: <http://dbpedia.org/property/>\
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
@@ -13,9 +12,7 @@ SELECT DISTINCT ?countryname ?wikipageID\
 WHERE {\
     ?country a dbo:Country .\
     ?country rdfs:label ?enName . \
-\
     FILTER (langMatches(lang(?enName), "en")) \
-\
     { ?country dbpprop:iso3166code ?code . }\
     UNION\
     { ?country dbpprop:iso31661Alpha ?code . }\
@@ -23,14 +20,11 @@ WHERE {\
     { ?country dbpprop:countryCode ?code . }\
     UNION\
     { ?country a yago:MemberStatesOfTheUnitedNations . }\
-\
     BIND (str(?enName) AS ?countryname)\
-\
 ?country dbpedia-owl:wikiPageID ?wikipageID\
 FILTER( xsd:integer(?wikipageID))\
-\
 }';
-  
+
   var queryUrl = encodeURI( url+"?query="+query+"&format=json" );
   $.ajax({
     dataType: "jsonp",
@@ -51,9 +45,6 @@ function wikiAttr () {
 //code from http://www.adamtavares.com/story/dbpedia/
   var url = 'http://dbpedia.org/sparql';
   var query = '\
-  PREFIX dbpedia2: <http://dbpedia.org/property/>\
-  PREFIX foaf: <http://xmlns.com/foaf/0.1/>\
-\
 SELECT DISTINCT ?country ?capital ?currency ?language ?population ?gdpnom ?ginii ?areatotal ?govttype ?perofwater \
 ?popdencity ?gdppp ?thumb ?wikilink WHERE {\
 \
