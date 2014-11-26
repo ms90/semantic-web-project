@@ -185,7 +185,7 @@ function setValues() {
 	setValue('l3', 42);
 	setValue('l4', 42);
 	setValue('l5', 42);
-	setValue('l6', 42);
+	setValue('l6', c1[5]);
 	setValue('l7', 42);
 	setValue('l8', 42);
 	setValue('l9', c1[8]);
@@ -206,7 +206,7 @@ function setValues() {
 	setValue('r3', 42);
 	setValue('r4', 42);
 	setValue('r5', 42);
-	setValue('r6', 42);
+	setValue('r6', c2[5]);
 	setValue('r7', 42);
 	setValue('r8', 42);
 	setValue('r9', c2[8]);
@@ -239,13 +239,13 @@ var sc2;
 
 
 //Fills c1 array with all attribute values
-function fillC1() {
+function setC1() {
 	c1[0] = "?";
 	c1[1] = "?";
 	c1[2] = "?";
 	c1[3] = "?";
 	c1[4] = "?";
-	c1[5] = "?";
+
 	c1[6] = "?";
 	c1[7] = "?";
 	c1[8] = education(c1_sc);
@@ -265,13 +265,13 @@ function fillC1() {
 }
 
 //Fills c2 array with all attribute values
-function fillC2() {
+function setC2() {
 	c2[0] = "?";
 	c2[1] = "?";
 	c2[2] = "?";
 	c2[3] = "?";
 	c2[4] = "?";
-	c2[5] = "?";
+
 	c2[6] = "?";
 	c2[7] = "?";
 	c2[8] = education(c2_sc);
@@ -366,16 +366,19 @@ function compAtrLow(i) {
 
 //Compare function
 function runComp(c1, c2) {
-	getDbpediaValues(c1);
-
 	c1_sc = getCountryShortcut(c1);
 	c2_sc = getCountryShortcut(c2);
 	c1_id = getWikiPageId(c1);
 	c2_id = getWikiPageId(c2);
-	fillC1();
-	fillC2();
+
+	setDbpediaValues(c1_id);
+
+	setC1();
+	setC2();
+
 	fillPct();
 	fillInv();
+
 	sc1 = 0;
 	sc2 = 0;
 
@@ -431,186 +434,6 @@ function getWikiPageId(country) {
 		}
 	}
 }
-
-/*
-function countryTranslation(country) {
-    switch (country) {
-    	case 'Albania': return country = "al"; break;
-        case 'Algeria': return country = "ag"; break;
-        case 'Angola': return country = "ao"; break;
-        case 'Anguilla': return country = "av"; break;
-        case 'Antigua and Barbuda': return country = "ac"; break;
-        case 'Argentinia': return country = "ar"; break;
-        case 'Armenia': return country = "am"; break;
-        case 'Aruba': return country = "aa"; break;          
-        case 'Australia': return country = "as"; break;
-        case 'Austria': return country = "au"; break;
-        case 'Azerbaijan': return country = "aj"; break;
-        case 'Bahrain': return country = "ba"; break;
-        case 'Bangladesh': return country = "bg"; break;
-        case 'Barbados': return country = "bb"; break;
-        case 'Belarus': return country = "bo"; break;
-        case 'Belgium': return country = "be"; break;
-        case 'Belize': return country = "bh"; break;
-        case 'Benin': return country = "bn"; break;
-        case 'Bermuda': return country = "bd"; break;
-        case 'Bhutan': return country = "bt"; break;
-        case 'Bolivia': return country = "bl"; break;
-        case 'Botswana': return country = "bc"; break;
-        case 'Brazil': return country = "br"; break;
-        case 'British Virgin Islands': return country = "vi"; break;
-        case 'Brunei': return country = "bx"; break;
-        case 'Bulgaria': return country = "bu"; break;
-        case 'Burkina Faso': return country = "uv"; break;
-        case 'Burma': return country = "bm"; break;
-        case 'Burundi': return country = "by"; break;
-        case 'Cabo Verde': return country = "cv"; break;
-        case 'Cambodia': return country = "cb"; break;
-        case 'Cameroon': return country = "cm"; break;
-        case 'Canada': return country = "ca"; break;
-        case 'Central African Republic': return country = "ct"; break;
-        case 'Chad': return country = "cd"; break;
-        case 'Chile': return country = "ci"; break;
-        case 'Colombia': return country = "co"; break;
-        case 'Comoros': return country = "cn"; break;
-        case 'Cook Islands': return country = "cw"; break;
-        case 'Costa Rica': return country = "cs"; break;
-        case 'Cote d\'Ivoire': return country = "iv"; break;
-        case 'Croatia': return country = "hr"; break;
-        case 'Cuba': return country = "cu"; break;
-        case 'Cyprus': return country = "cy"; break;
-        case 'Czech Republic': return country = "ez"; break;
-        case 'Democratic Republic of the Congo': return country = "cg"; break;
-        case 'Denmark': return country = "da"; break;
-        case 'Djibouti': return country = "dj"; break;
-        case 'Dominica': return country = "do"; break;
-        case 'Dominican Republic': return country = "dr"; break;
-        case 'Ecuador': return country = "ec"; break;
-        case 'Egypt': return country = "eg"; break;
-        case 'El Salvador': return country = "es"; break;
-        case 'Equatorial Guinea': return country = "ek"; break;
-        case 'Eritrea': return country = "er"; break;
-        case 'Estonia': return country = "en"; break;
-        case 'Ethiopia': return country = "et"; break;
-        case 'Fiji': return country = "fj"; break;
-        case 'Finland': return country = "fi"; break;
-        case 'France': return country = "fr"; break;
-        case 'Gambia': return country = "ga"; break;
-        case 'Georgia': return country = "gg"; break;
-        case 'Germany': return country = "gm"; break;
-        case 'Ghana': return country = "gh"; break;
-        case 'Greece': return country = "gr"; break;
-        case 'Grenada': return country = "gj"; break;
-        case 'Guatemala': return country = "gt"; break;
-        case 'Guinea': return country = "gv"; break;
-        case 'Guyana': return country = "gy"; break;
-        case 'Hong Kong': return country = "hk"; break;
-        case 'Hungary': return country = "hu"; break;           
-        case 'Iceland': return country = "ic"; break;
-        case 'India': return country = "in"; break;
-        case 'Indonesia': return country = "id"; break;
-        case 'Iran': return country = "ir"; break;
-        case 'Ireland': return country = "ei"; break;
-        case 'Israel': return country = "is"; break;
-        case 'Italy': return country = "it"; break;
-        case 'Jamaica': return country = "jm"; break;
-        case 'Japan': return country = "ja"; break;
-        case 'Kazakhstan': return country = "kz"; break;
-        case 'Kenya': return country = "ke"; break;
-        case 'Kiribati': return country = "kr"; break;
-        case 'Kosovo': return country = "kv"; break;
-        case 'Kuwait': return country = "ku"; break;
-        case 'Kyrgyzstan': return country = "kg"; break;
-        case 'Laos': return country = "la"; break;
-        case 'Latvia': return country = "lg"; break;
-        case 'Lebanon': return country = "le"; break;
-        case 'Lesotho': return country = "lt"; break;
-        case 'Liberia': return country = "li"; break;
-        case 'Liechtenstein': return country = "ls"; break;
-        case 'Lithuania': return country = "lh"; break;
-        case 'Luxembourg': return country = "lu"; break;
-        case 'Macau': return country = "mc"; break;
-        case 'Madagascar': return country = "ma"; break;
-        case 'Malawi': return country = "mi"; break;
-        case 'Malaysia': return country = "my"; break;
-        case 'Maldives': return country = "mv"; break;
-        case 'Mali': return country = "ml"; break;
-        case 'Malta': return country = "mt"; break;
-        case 'Marshall Islands': return country = "rm"; break;
-        case 'Mauritania': return country = "mr"; break;
-        case 'Mauritius': return country = "mp"; break;
-        case 'Mexico': return country = "mx"; break;
-        case 'Moldova': return country = "md"; break;
-        case 'Monaco': return country = "mn"; break;
-        case 'Mongolia': return country = "mg"; break;
-        case 'Morocco': return country = "mo"; break;
-        case 'Mozambique': return country = "mz"; break;
-        case 'Namibia': return country = "wa"; break;
-        case 'Nepal': return country = "np"; break;
-        case 'Netherlands': return country = "nl"; break;
-        case 'New Zealand': return country = "nz"; break;
-        case 'Nicaragua': return country = "nu"; break;
-        case 'Niger': return country = "ng"; break;
-        case 'Norway': return country = "no"; break;
-        case 'Oman': return country = "mu"; break;
-        case 'Pakistan': return country = "pk"; break;
-        case 'Palau': return country = "ps"; break;
-        case 'Panama': return country = "pm"; break;
-        case 'Paraguay': return country = "pa"; break;
-        case 'Peru': return country = "pe"; break;
-        case 'Philippines': return country = "rp"; break;
-        case 'Poland': return country = "pl"; break;
-        case 'Portugal': return country = "po"; break;
-        case 'Qatar': return country = "qa"; break;
-        case 'Republic of the Congo': return country = "cf"; break;
-        case 'Romania': return country = "ro"; break;
-        case 'Russia': return country = "rs"; break;
-        case 'Rwanda': return country = "rw"; break;
-        case 'Saint Kitts and Nevis': return country = "sc"; break;
-        case 'Saint Lucia': return country = "st"; break;
-        case 'Saint Vincent and the Grenadines': return country = "vc"; break;
-        case 'Samoa': return country = "ws"; break;
-        case 'Sao Tome and Principe': return country = "tp"; break;
-        case 'Saudi Arabia': return country = "sa"; break;
-        case 'Senegal': return country = "sg"; break;
-        case 'Serbia': return country = "ri"; break;
-        case 'Seychelles': return country = "se"; break;     
-        case 'Sierra Leone': return country = "sl"; break;
-        case 'Singapore': return country = "sn"; break;
-        case 'Slovakia': return country = "lo"; break;
-        case 'Slovenia': return country = "si"; break;
-        case 'Solomon Islands': return country = "bp"; break;
-        case 'South Africa': return country = "sf"; break;
-        case 'South Korea': return country = "ks"; break;
-        case 'Spain': return country = "sp"; break;
-        case 'Sri Lanka': return country = "ce"; break;
-        case 'Swaziland': return country = "wz"; break;
-        case 'Sweden': return country = "sw"; break;
-        case 'Switzerland': return country = "sz"; break;
-        case 'Syria': return country = "sy"; break;
-        case 'Tajikistan': return country = "ti"; break;
-        case 'Tanzania': return country = "tz"; break;
-        case 'Thailand': return country = "th"; break;
-        case 'Timor-Leste': return country = "tt"; break;
-        case 'Togo': return country = "to"; break;
-        case 'Tonga': return country = "tn"; break;
-        case 'Trinidad and Tobago': return country = "td"; break;
-        case 'Tunisia': return country = "ts"; break;
-        case 'Turkey': return country = "tu"; break;
-        case 'Uganda': return country = "ug"; break;
-        case 'Ukraine': return country = "up"; break;
-        case 'United Kingdom': return country = "uk"; break;
-        case 'United States': return country = "us"; break;
-        case 'Uruguay': return country = "uy"; break;
-        case 'Vanuatu': return country = "nh"; break;
-        case 'Venezuela': return country = "ve"; break;
-        case 'Vietnam': return country = "vm"; break;
-        case 'Yemen': return country = "ym"; break;
-        case 'Zambia': return country = "za"; break;
-        case 'Zimbabwe': return country = "zi"; break;
-	}
-}
-*/
 
 //Education expenditures
 function education(country) {
@@ -712,52 +535,36 @@ function hivDeaths(country) {
             break;
  	   }}}
 
-function getDbpediaValues (id) {
+function setDbpediaValues (id) {
   	var url = 'http://dbpedia.org/sparql';
-  	var query = '\
-		SELECT DISTINCT ?country ?capital ?currency ?tongue ?population ?gdpnom ?ginii ?areatotal ?govttype ?perofwater \
-		?popdensity ?gdppp ?wikilink ?abstract WHERE {\
-		\
-		?c a dbpedia-owl:Country.\
-		?c dbpedia-owl:wikiPageID "' + id + '"^^xsd:integer.\
-		?c rdfs:label ?country.\
-		FILTER(langMatches(lang(?country), "en"))\
-		\
-		optional {?c dbpedia-owl:capital ?cap.\
-		?cap rdfs:label ?capital.\
-		FILTER(langMatches(lang(?capital), "en"))}\
-		\
-		optional{ ?c dbpedia-owl:currency ?cur.\
-		?cur rdfs:label ?currency.\
-		FILTER(langMatches(lang(?currency), "en")) }\
-		\
-		optional{ ?c dbpedia-owl:language ?t.\
-		?t dbpprop:name ?tongue.\
-		FILTER(langMatches(lang(?tongue), "en"))}\
-		\
-		optional{ ?c dbpedia-owl:populationTotal ?population.}\
-		\
-		optional{ ?c dbpprop:gdpNominalPerCapita ?gdpnom.}\
-		\
-		optional{ ?c dbpprop:gini ?ginii.}\
-		\
-		optional{ ?c dbpedia-owl:areaTotal ?areatotal.}\
-		\
-		optional{ ?c dbpedia-owl:governmentType ?gvt.\
-		?gvt rdfs:label ?govttype.\
-		FILTER(langMatches(lang(?govttype), "en"))}\
-		 \
-		optional{ ?c dbpedia-owl:percentageOfAreaWater ?perofwater.}\
-		\
-		optional{ ?c dbpedia-owl:populationDensity ?popdensity.}\
-		\
-		optional{?c dbpprop:gdpPppPerCapita ?gdppp.}\
-		\
-		optional{ ?c foaf:isPrimaryTopicOf  ?wikilink.}\
-		\
-		?c dbpedia-owl:abstract ?abstract.
-		FILTER(langMatches(lang(?abstract), "en"))}\
-		}';
+  	var query = 'SELECT DISTINCT ?country ?capital ?currency ?tongue ?population ?gdpnom ?ginii ?areatotal ?govttype ?perofwater' 
+		+ ' ?popdensity ?gdppp ?wikilink ?abstract WHERE {'
+		+ ' ?c a dbpedia-owl:Country.'
+		+ ' ?c dbpedia-owl:wikiPageID "' + id + '"^^xsd:integer.'
+		+ ' ?c rdfs:label ?country.'
+		+ ' FILTER(langMatches(lang(?country), "en"))'
+		+ ' optional {?c dbpedia-owl:capital ?cap.'
+		+ ' ?cap rdfs:label ?capital.'
+		+ ' FILTER(langMatches(lang(?capital), "en"))}'
+		+ ' optional{ ?c dbpedia-owl:currency ?cur.'
+		+ ' ?cur rdfs:label ?currency.'
+		+ ' FILTER(langMatches(lang(?currency), "en"))}'
+		+ ' optional{ ?c dbpedia-owl:language ?t.'
+		+ ' ?t dbpprop:name ?tongue.'
+		+ ' FILTER(langMatches(lang(?tongue), "en"))}'
+		+ ' optional{ ?c dbpedia-owl:populationTotal ?population.}'
+		+ ' optional{ ?c dbpprop:gdpNominalPerCapita ?gdpnom.}'
+		+ ' optional{ ?c dbpprop:gini ?ginii.}'
+		+ ' optional{ ?c dbpedia-owl:areaTotal ?areatotal.}'
+		+ ' optional{ ?c dbpedia-owl:governmentType ?gvt.'
+		+ ' ?gvt rdfs:label ?govttype.'
+		+ ' FILTER(langMatches(lang(?govttype), "en"))}'
+		+ ' optional{ ?c dbpedia-owl:percentageOfAreaWater ?perofwater.}'
+		+ ' optional{ ?c dbpedia-owl:populationDensity ?popdensity.}'
+		+ ' optional{?c dbpprop:gdpPppPerCapita ?gdppp.}'
+		+ ' optional{ ?c foaf:isPrimaryTopicOf  ?wikilink.}'
+		+ ' ?c dbpedia-owl:abstract ?abstract.'
+		+ ' FILTER(langMatches(lang(?abstract), "en"))}}';
 
     var queryUrl = encodeURI( url+"?query="+query+"&format=json" );
     $.ajax({
@@ -765,34 +572,41 @@ function getDbpediaValues (id) {
 	    url: queryUrl,
 	    success: function( _data ) {
 	      var results = _data.results.bindings;
-			console.log("Query successful!");
-	        dbp[0] = results[0].country.value;
-	        console.log(dbp[0]);
-	        dbp[1] = results[0].capital.value;
-	        console.log(dbp[1]);
-	        dbp[2] = results[0].currency.value;
-	        console.log(dbp[2]);
-	        dbp[3] = results[0].tongue.value;
-	        console.log(dbp[3]);
-	        dbp[4] = results[0].population.value;
-	        console.log(dbp[4]);
-	        dbp[5] = results[0].gdpnom.value;
-	        console.log(dbp[5]);
-	        dbp[6] = results[0].ginii.value;
-	        console.log(dbp[6]);
-	        dbp[7] = results[0].areatotal.value;
-	        console.log(dbp[7]);
-	        dbp[8] = results[0].govttype.value;
-	        console.log(dbp[8]);
-	        dbp[9] = results[0].perofwater.value;
-	        console.log(dbp[9]);
-	        dbp[10] = results[0].popdensity.value;
-	        console.log(dbp[10]);
-	        dbp[11] = results[0].gdppp.value;
-	        console.log(dbp[11]);
-	        dbp[12] = results[0].wikilink.value;
-	        console.log(dbp[12]);
-	        dbp[13] = results[0].abstract.value;
-	        console.log(dbp[13]); 
-   	}});
+		      	dbp[0] = results[0].country.value;
+		        console.log(dbp[0]);
+		        dbp[1] = results[0].capital.value;
+		        console.log(dbp[1]);
+		        dbp[2] = results[0].currency.value;
+		        console.log(dbp[2]);
+		        dbp[3] = results[0].tongue.value;
+		        console.log(dbp[3]);
+		        dbp[4] = results[0].population.value;
+		        console.log(dbp[4]);
+		        dbp[5] = results[0].gdpnom.value;
+		        console.log(dbp[5]);
+		        dbp[6] = results[0].ginii.value;
+		        console.log(dbp[6]);
+		        dbp[7] = results[0].areatotal.value;
+		        console.log(dbp[7]);
+		        dbp[8] = results[0].govttype.value;
+		        console.log(dbp[8]);
+		        dbp[9] = results[0].perofwater.value;
+		        console.log(dbp[9]);
+		        dbp[10] = results[0].popdensity.value;
+		        console.log(dbp[10]);
+		        dbp[11] = results[0].gdppp.value;
+		        console.log(dbp[11]);
+		        dbp[12] = results[0].wikilink.value;
+		        console.log(dbp[12]);
+		        dbp[13] = results[0].abstract.value;
+		        console.log(dbp[13]);
+		    }});
+}
+
+function setDbpC1() {
+	c1[5] = dbp[5];
+}
+
+function setDbpC2() {
+	c2[5] = dbp[5];
 }
