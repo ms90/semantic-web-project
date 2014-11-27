@@ -40,7 +40,7 @@ function compare() {
 	c2_id = getWikiPageId(count2);
 
 	if (validateInput(count1, count2)) {
-		$.when(setDbpediaValues(c1_id), setDbpediaValues(c2_id)).done(runComp);
+		$.when(setDbpediaValues(c1_id), setDbpediaValues(c2_id)).then(runComp);
 	}
 }
 
