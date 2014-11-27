@@ -566,7 +566,7 @@ function setDbpediaValues(id) {
 
     var queryUrl = encodeURI( url+"?query="+query+"&format=json" );
     $.ajax({
-	    dataType: "json",
+	    dataType: "jsonp",
 	    url: queryUrl,
 	    success: function(data) {
 	    	dbp = [];
