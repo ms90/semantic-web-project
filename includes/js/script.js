@@ -185,47 +185,47 @@ function setValues() {
 	setValue('lang2', 42);
 	setValue('gov2', 42);
 
-	setValue('l1', 42);
-	setValue('l2', 42);
-	setValue('l3', 42);
-	setValue('l4', 42);
-	setValue('l5', 42);
+	setValue('l1', c1[0]);
+	setValue('l2', c1[1]);
+	setValue('l3', c1[2]);
+	setValue('l4', c1[3]);
+	setValue('l5', c1[4]);
 	setValue('l6', c1[5]);
-	setValue('l7', 42);
-	setValue('l8', 42);
+	setValue('l7', c1[6]);
+	setValue('l8', c1[7]);
 	setValue('l9', c1[8]);
-	setValue('l10', 42);
-	setValue('l11', 42);
-	setValue('l12', 42);
-	setValue('l13', 42);
-	setValue('l14', 42);
-	setValue('l15', 42);
-	setValue('l16', 42);
-	setValue('l17', 42);
-	setValue('l18', 42);
+	setValue('l10', c1[9]);
+	setValue('l11', c1[10]);
+	setValue('l12', c1[11]);
+	setValue('l13', c1[12]);
+	setValue('l14', c1[13]);
+	setValue('l15', c1[14]);
+	setValue('l16', c1[15]);
+	setValue('l17', c1[16]);
+	setValue('l18', c1[17]);
 	setValue('l19', c1[18]);
-	setValue('l20', 42);
+	setValue('l20', c1[19]);
 
-	setValue('r1', 42);
-	setValue('r2', 42);
-	setValue('r3', 42);
-	setValue('r4', 42);
-	setValue('r5', 42);
+	setValue('r1', c2[0]);
+	setValue('r2', c2[1]);
+	setValue('r3', c2[2]);
+	setValue('r4', c2[3]);
+	setValue('r5', c2[4]);
 	setValue('r6', c2[5]);
-	setValue('r7', 42);
-	setValue('r8', 42);
+	setValue('r7', c2[6]);
+	setValue('r8', c2[7]);
 	setValue('r9', c2[8]);
-	setValue('r10', 42);
-	setValue('r11', 42);
-	setValue('r12', 42);
-	setValue('r13', 42);
-	setValue('r14', 42);
-	setValue('r15', 42);
-	setValue('r16', 42);
-	setValue('r17', 42);
-	setValue('r18', 42);
+	setValue('r10', c2[9]);
+	setValue('r11', c2[10]);
+	setValue('r12', c2[11]);
+	setValue('r13', c2[12]);
+	setValue('r14', c2[13]);
+	setValue('r15', c2[14]);
+	setValue('r16', c2[15]);
+	setValue('r17', c2[16]);
+	setValue('r18', c2[17]);
 	setValue('r19', c2[18]);
-	setValue('r20', 42);
+	setValue('r20', c2[19]);
 }
 
 
@@ -253,18 +253,18 @@ function setC1() {
 
 	c1[6] = "?";
 	c1[7] = "?";
-	c1[8] = education(c1_sc);
-	c1[9] = "?";
-	c1[10] = "?";
-	c1[11] = "?";
-	c1[12] = "?";
-	c1[13] = "?";
-	c1[14] = "?";
-	c1[15] = "?";
-	c1[16] = "?";
-	c1[17] = "?";
-	c1[18] = healthExpenses(c1_sc);
-	c1[19] = "?";
+	c1[8] = ciaData(c1_sc ,'f2206'); //Education
+	c1[9] = ciaData(c1_sc ,'f2129'); //Unemployment Rate
+	c1[10] = ciaData(c1_sc ,'f2221'); //Taxes and other Revenues
+	c1[11] = ciaData(c1_sc ,'f2092'); //Inflation Rate
+	c1[12] = ciaData(c1_sc ,'f2054'); //Birth Rate
+	c1[13] = ciaData(c1_sc ,'f2066'); //Death Rate
+	c1[14] = ciaData(c1_sc ,'f2112'); //Net Migration Rate
+	c1[15] = ciaData(c1_sc ,'f2223'); //Maternal Mortality Rate
+	c1[16] = ciaData(c1_sc ,'f2091'); //Infant Mortality Rate
+	c1[17] = ciaData(c1_sc ,'f2102'); //Life Expectancy at Birth
+	c1[18] = ciaData(c1_sc ,'f2225'); //Health Expenditures
+	c1[19] = ciaData(c1_sc ,'f2157'); //HIV/AIDS Deaths
 
 	console.log("C1 Values: " + c1);
 }
@@ -279,18 +279,18 @@ function setC2() {
 
 	c2[6] = "?";
 	c2[7] = "?";
-	c2[8] = education(c2_sc);
-	c2[9] = "?";
-	c2[10] = "?";
-	c2[11] = "?";
-	c2[12] = "?";
-	c2[13] = "?";
-	c2[14] = "?";
-	c2[15] = "?";
-	c2[16] = "?";
-	c2[17] = "?";
-	c2[18] = healthExpenses(c2_sc);
-	c2[19] = "?";
+	c2[8] = ciaData(c2_sc ,'f2206'); //Education
+	c2[9] = ciaData(c2_sc ,'f2129'); //Unemployment Rate
+	c2[10] = ciaData(c2_sc ,'f2221'); //Taxes and other Revenues
+	c2[11] = ciaData(c2_sc ,'f2092'); //Inflation Rate
+	c2[12] = ciaData(c2_sc ,'f2054'); //Birth Rate
+	c2[13] = ciaData(c2_sc ,'f2066'); //Death Rate
+	c2[14] = ciaData(c2_sc ,'f2112'); //Net Migration Rate
+	c2[15] = ciaData(c2_sc ,'f2223'); //Maternal Mortality Rate
+	c2[16] = ciaData(c2_sc ,'f2091'); //Infant Mortality Rate
+	c2[17] = ciaData(c2_sc ,'f2102'); //Life Expectancy at Birth
+	c2[18] = ciaData(c2_sc ,'f2225'); //Health Expenditures
+	c2[19] = ciaData(c1_sc ,'f2157'); //HIV/AIDS Deaths
 
 	console.log("C2 Values: " + c2);
 }
@@ -433,103 +433,10 @@ function getWikiPageId(country) {
 	}
 }
 
-//Education expenditures
-function education(country) {
+function ciaData(country, id) {
 	   for (var i=1, max=999; i < max; i++) {
-       	if (country === xmlDoc.getElementById('f2206').childNodes[i].getAttributeNode('country').value)
-    	   {   return xmlDoc.getElementById('f2206').childNodes[i].getAttributeNode('number').value;
-               break;
-    	   }}}
-
-//UNemployment Rate
-function unemployment(country) {
-	   for (var i=1, max=999; i < max; i++) {
-       	if (country === xmlDoc.getElementById('f2129').childNodes[i].getAttributeNode('country').value)
-    	   {   return xmlDoc.getElementById('f2129').childNodes[i].getAttributeNode('number').value;
-               break;
-    	   }}}
-
-//Taxes and other revenues
-function taxes(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2221').childNodes[i].getAttributeNode('country').value)
- 	   {    return xmlDoc.getElementById('f2221').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-//Inflation rate (consumer prices)
-function inflation(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2092').childNodes[i].getAttributeNode('country').value)
- 	   {    return xmlDoc.getElementById('f2092').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-
-//Birth rate
-function birth(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2054').childNodes[i].getAttributeNode('country').value)
- 	   {    return xmlDoc.getElementById('f2054').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-
-//Death rate
-function death(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2066').childNodes[i].getAttributeNode('country').value)
- 	   {    return xmlDoc.getElementById('f2066').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-//Net migration rate
-function migration(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2112').childNodes[i].getAttributeNode('country').value)
- 	   {     return xmlDoc.getElementById('f2112').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-
-//Maternal mortality rate
-function maternalMortality(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2223').childNodes[i].getAttributeNode('country').value)
- 	   {     return xmlDoc.getElementById('f2223').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-//Infant mortality rate
-function infantMoratilty(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2091').childNodes[i].getAttributeNode('country').value)
- 	   {     return xmlDoc.getElementById('f2091').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-
-//Life expectancy at birth
-function expectancy(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2102').childNodes[i].getAttributeNode('country').value)
- 	   {     return xmlDoc.getElementById('f2102').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-//Health expenditures
-function healthExpenses(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2225').childNodes[i].getAttributeNode('country').value)
- 	   {     return xmlDoc.getElementById('f2225').childNodes[i].getAttributeNode('number').value;
-            break;
- 	   }}}
-
-//HIV/AIDS - deaths
-function hivDeaths(country) {
-	   for (var i=1, max=999; i < max; i++) {
-    if (country === xmlDoc.getElementById('f2157').childNodes[i].getAttributeNode('country').value)
- 	   {     return xmlDoc.getElementById('f2157').childNodes[i].getAttributeNode('number').value;
+    	if (country === xmlDoc.getElementById(id).childNodes[i].getAttributeNode('country').value)
+ 	   {   return xmlDoc.getElementById(id).childNodes[i].getAttributeNode('number').value;
             break;
  	   }}}
 

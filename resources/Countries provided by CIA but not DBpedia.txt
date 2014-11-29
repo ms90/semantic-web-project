@@ -1,0 +1,14 @@
+            case "Cote d'Ivoire": return country = "iv"; break;
+            case 'Anguilla': return country = "av"; break;
+            case 'Antigua and Barbuda': return country = "ac"; break;
+            case 'Aruba': return country = "aa"; break;          
+            case 'Bermuda': return country = "bd"; break;
+            case 'British Virgin Islands': return country = "vi"; break;
+            case 'Gambia': return country = "ga"; break;
+            case 'Hong Kong': return country = "hk"; break;
+            case 'Kosovo': return country = "kv"; break;
+            case 'Liechtenstein': return country = "ls"; break;
+            case 'Macau': return country = "mc"; break;
+            case 'South Korea': return country = "ks"; break;
+            case 'Timor-Leste': return country = "tt"; break;
+            case 'Zimbabwe': return country = "zi"; break;

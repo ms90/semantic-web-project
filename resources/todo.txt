@@ -18,3 +18,16 @@ Maxim:
 
 
 - country flags (?)
+
+
+
+Todo:
+
+Marc
+optimize function
+that it works with your code ,put on two places
+(use round function for the numbers)
+
+Maxim:
+if some lineis missing
+
