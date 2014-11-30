@@ -144,7 +144,7 @@ function setC2() {
 	c2[16] = ciaData(c2_sc ,'f2091'); //Infant Mortality Rate
 	c2[17] = ciaData(c2_sc ,'f2102'); //Life Expectancy at Birth
 	c2[18] = ciaData(c2_sc ,'f2225'); //Health Expenditures
-	c2[19] = ciaData(c1_sc ,'f2157'); //HIV/AIDS Deaths
+	c2[19] = ciaData(c2_sc ,'f2157'); //HIV/AIDS Deaths
 
 	console.log("C2 Values: " + c2);
 }
