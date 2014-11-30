@@ -48,8 +48,6 @@ function getCountryShortcut(country) {
 	for (var i=0; i<cList.length; i++) {
 		if (cList[i] == country) {
 			return cList_s[i];
-			console.log(cList_s[i]);
-			break;
 		}
 	}
 }
@@ -58,14 +56,18 @@ function getWikiPageId(country) {
 	for (var i=0; i<cList.length; i++) {
 		if (cList[i] == country) {
 			return cList_i[i];
-			console.log(cList_i[i]);
-			break;
 		}
 	}
 }
 
 function ciaData(country, id) {
 	for (var i=1, max=400; i < max; i++) {
+<<<<<<< HEAD
+ 		var something = xmlDoc.getElementById(id).childNodes[i];
+		if (something && country === something.getAttributeNode('country').value){
+			return something.getAttributeNode('number').value;
+   		}
+=======
  		if (country === xmlDoc.getElementById(id).childNodes[i].getAttributeNode('country').value){
  			return xmlDoc.getElementById(id).childNodes[i].getAttributeNode('number').value;
          	break;
@@ -75,5 +77,6 @@ function ciaData(country, id) {
  			{
  			return '';
  			}
+>>>>>>> origin/master
 	}
 }
