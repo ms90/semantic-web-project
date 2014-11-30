@@ -70,5 +70,10 @@ function ciaData(country, id) {
  			return xmlDoc.getElementById(id).childNodes[i].getAttributeNode('number').value;
          	break;
 	   }
+ 		
+ 		else
+ 			{
+ 			return '';
+ 			}
 	}
 }
