@@ -379,7 +379,7 @@ break;
 }
 
 function ciaData(country, id) {
-	   for (var i=1, max=999; i < max; i++) {
+	   for (var i=1, max=400; i < max; i++) {
  	if (country === xmlDoc.getElementById(id).childNodes[i].getAttributeNode('country').value)
 	   {   return xmlDoc.getElementById(id).childNodes[i].getAttributeNode('number').value;
          break;
