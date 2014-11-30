@@ -66,8 +66,6 @@ function ciaData(country, id) {
 		if (something && country === something.getAttributeNode('country').value){
 			return something.getAttributeNode('number').value;
    		}
-		
-		else
-			{return "";}
+	
 	}
 }
