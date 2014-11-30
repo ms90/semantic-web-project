@@ -68,6 +68,9 @@ function setValues() {
 
 //Main comparison function
 function compare() {
+	leftResults = undefined;
+	rightResults = undefined;
+
 	count1 = document.getElementById("country1").value;
 	count2 = document.getElementById("country2").value;
 
@@ -77,7 +80,8 @@ function compare() {
 	c2_id = getWikiPageId(count2);
 
 	if (validateInput(count1, count2)) {
- 		$.when(setDbpediaValues(c1_id)).then(setDbpediaValues(c2_id));
+ 		setDbpediaValues(c1_id, "left");
+ 		setDbpediaValues(c2_id, "right");
 	}
 }
 
