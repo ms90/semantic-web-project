@@ -142,60 +142,60 @@ function setValue(id, value) {
 document.getElementById(id).innerHTML = value;
 }
 function setValues() {
-setValue('nam1', 'Placeholder');
-setValue('area1', 42);
+setValue('nam1', 'placeholder');
+setValue('area1', 1);
 setValue('pop1', c1dbp[4]);
 setValue('cap1', c1dbp[1]);
 setValue('cur1', c1dbp[2]);
 setValue('lang1', c1dbp[3]);
-setValue('gov1', 42);
-setValue('nam2', 'Placeholder');
-setValue('area2', 42);
+setValue('gov1', c1dbp[8]);
+setValue('nam2', 'placeholder');
+setValue('area2', 3);
 setValue('pop2', c2dbp[4]);
 setValue('cap2', c2dbp[1]);
 setValue('cur2', c2dbp[2]);
 setValue('lang2', c2dbp[3]);
-setValue('gov2', 42);
-setValue('l1', 42);
-setValue('l2', 42);
-setValue('l3', 42);
-setValue('l4', 42);
-setValue('l5', 42);
+setValue('gov2', c2dbp[8]);
+setValue('l1', 5);
+setValue('l2', 6);
+setValue('l3', 7);
+setValue('l4', c1[3]);
+setValue('l5', c1[4]);
 setValue('l6', c1dbp[5]);
-setValue('l7', 42);
-setValue('l8', 42);
-setValue('l9', c1dbp[8]);
-setValue('l10', 42);
-setValue('l11', 42);
-setValue('l12', 42);
-setValue('l13', 42);
-setValue('l14', 42);
-setValue('l15', 42);
-setValue('l16', 42);
-setValue('l17', 42);
-setValue('l18', 42);
-setValue('l19', c1dbp[18]);
-setValue('l20', 42);
-setValue('r1', 42);
-setValue('r2', 42);
-setValue('r3', 42);
-setValue('r4', 42);
-setValue('r5', 42);
+setValue('l7', 10);
+setValue('l8', 11);
+setValue('l9', c1[8]);
+setValue('l10', c1[9]);
+setValue('l11', c1[10]);
+setValue('l12', c1[11]);
+setValue('l13', c1[12]);
+setValue('l14', c1[13]);
+setValue('l15', c1[14]);
+setValue('l16', c1[15]);
+setValue('l17', c1[16]);
+setValue('l18', c1[17]);
+setValue('l19', c1[18]);
+setValue('l20', c1[19]);
+setValue('r1', 22);
+setValue('r2', 23);
+setValue('r3', 24);
+setValue('r4', c2[3]);
+setValue('r5', c2[4]);
 setValue('r6', c2dbp[5]);
-setValue('r7', 42);
-setValue('r8', 42);
-setValue('r9', c2dbp[8]);
-setValue('r10', 42);
-setValue('r11', 42);
-setValue('r12', 42);
-setValue('r13', 42);
-setValue('r14', 42);
-setValue('r15', 42);
-setValue('r16', 42);
-setValue('r17', 42);
-setValue('r18', 42);
-setValue('r19', c2dbp[18]);
-setValue('r20', 42);
+setValue('r7', 27);
+setValue('r8', 28);
+setValue('r9', c2[8]);
+setValue('r10', c2[9]);
+setValue('r11', c2[10]);
+setValue('r12', c2[11]);
+setValue('r13', c2[12]);
+setValue('r14', c2[13]);
+setValue('r15', c2[14]);
+setValue('r16', c2[15]);
+setValue('r17', c2[16]);
+setValue('r18', c2[17]);
+setValue('r19', c2[18]);
+setValue('r20', c2[19]);
 }
 //--------------------------------------------------------------------------------------------------
 //Comparison functionality
@@ -211,8 +211,8 @@ function setC1() {
 	c1[0] = "?";
 	c1[1] = "?";
 	c1[2] = "?";
-	c1[3] = "?";
-	c1[4] = "?";
+	c1[3] = ciaData(c1_sc ,'f2085'); //Roadways
+	c1[4] = ciaData(c1_sc ,'f2121'); //Railways
 
 	c1[6] = "?";
 	c1[7] = "?";
@@ -236,8 +236,8 @@ function setC2() {
 	c2[0] = "?";
 	c2[1] = "?";
 	c2[2] = "?";
-	c2[3] = "?";
-	c2[4] = "?";
+	c2[3] = ciaData(c2_sc ,'f2085'); //Roadways
+	c2[4] = ciaData(c2_sc ,'f2121'); //Railways
 
 	c2[6] = "?";
 	c2[7] = "?";
