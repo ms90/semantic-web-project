@@ -136,7 +136,7 @@ function setDbpediaValues(id, leftOrRight) {
               c2dbp[13] = rightResults[0].abstract.value;
             } else c2dbp[13] = "n/a";
   
-          console.log(c1dbp+'\n'+'\n'+c2dbp);
+          console.log(c1dbp[12]+'\n'+'\n'+c2dbp[12]);
           runComp();
           //BIG PROBLEM!!!  the country in the arrays could be either (it's different every time).
       }
