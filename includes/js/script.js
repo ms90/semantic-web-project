@@ -24,9 +24,6 @@ function loadCountryList(){
 			}
 		}
 	});
-	//console.log(cList);
-	//console.log(cList_s);
-	//console.log(cList_i);
 }
 
 //Main comparison function
@@ -164,7 +161,7 @@ function hideAlert(alert) {
 
 //--------------------------------------------------------------------------------------------------------------
 //Display values in html
-//Author: Maxim Serebrianski
+//Author: Maxim Serebrianski & Marcus Szkoc
 
 function setValue(id, value) {
 	 document.getElementById(id).innerHTML = value;
@@ -172,13 +169,12 @@ function setValue(id, value) {
 
 function setValuesC1() {
 	setValue('nam1', c1dbp[0]);
-	setValue('area1', c1dbp[7]);
-	setValue('pop1', c1dbp[4]);
+	setValue('area1',Math.round(c1dbp[7]));
+	setValue('pop1', Math.round(c1dbp[4]));
 	setValue('cap1', c1dbp[1]);
 	setValue('cur1', c1dbp[2]);
 	setValue('lang1', c1dbp[3]);
 	setValue('gov1', c1dbp[8]);
-
 	setValue('l1', c1[0]);
 	setValue('l2', c1[1]);
 	setValue('l3', c1[2]);
@@ -203,13 +199,12 @@ function setValuesC1() {
 
 function setValuesC2() {
 	setValue('nam2', c2dbp[0]);
-	setValue('area2', c2dbp[7]);
-	setValue('pop2', c2dbp[4]);
+	setValue('area2',Math.round(c2dbp[7]));
+	setValue('pop2', Math.round(c2dbp[4]));
 	setValue('cap2', c2dbp[1]);
 	setValue('cur2', c2dbp[2]);
 	setValue('lang2', c2dbp[3]);
 	setValue('gov2', c2dbp[8]);
-
 	setValue('r1', c2[0]);
 	setValue('r2', c2[1]);
 	setValue('r3', c2[2]);
@@ -234,7 +229,7 @@ function setValuesC2() {
 
 //--------------------------------------------------------------------------------------------------
 //Comparison functionality and setting values
-//Author: Maxim Serebrianski
+//Author: Maxim Serebrianski & Marcus Szkoc
 
 //Attribute values for c1 and c2, attribute weights and inversion flag
 var c1 = [], c2 = [], pct = [], inv = [];
@@ -245,7 +240,6 @@ var highEqGood = [true,true,false,true,true,true,true,false,true,false,false,fal
 //Final scores for c1 and c2
 var sc1;
 var sc2;
-
 
 //Fills c1 array with all attribute values
 function setC1() {
@@ -269,8 +263,6 @@ function setC1() {
 	c1[17] = Number(ciaData(c1_sc ,'f2102')); //Life Expectancy at Birth
 	c1[18] = Number(ciaData(c1_sc ,'f2225')); //Health Expenditures
 	c1[19] = Number(ciaData(c1_sc ,'f2228')); //Obesity
-
-	//console.log("C1 Values: " + c1);
 }
 
 //Fills c2 array with all attribute values
@@ -295,8 +287,6 @@ function setC2() {
 	c2[17] = Number(ciaData(c2_sc ,'f2102')); //Life Expectancy at Birth
 	c2[18] = Number(ciaData(c2_sc ,'f2225')); //Health Expenditures
 	c2[19] = Number(ciaData(c2_sc ,'f2228')); //Obesity
-
-	//console.log("C2 Values: " + c2);
 }
 
 //Fills array with user weights
@@ -451,7 +441,7 @@ function ciaData(country, id) {
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------
-//Authors: Maxim Serebrianski & Erica Hermanson (Logic), Mahendra Padi (Query)
+//Authors: Maxim Serebrianski & Erica Hermanson (Logic),Marcus Szkoc , Mahendra Padi (Query)
 //Dbpedia Query
 
 var c1dbp=[], c2dbp=[];
@@ -498,7 +488,6 @@ function setDbpediaValues(id, c) {
     	results = data.results.bindings;
     	if (c == 'c1') {
 	        try{
-	        	
 	            if (typeof(results[0].country) != 'undefined') {
 	              c1dbp[0] = results[0].country.value;
 	            } else c1dbp[0] = results[0].country2.value;
@@ -604,5 +593,4 @@ function setDbpediaValues(id, c) {
     	}
   	}});
 }
-
 //--------------------------------------------------------------------------------------------------
