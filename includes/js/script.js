@@ -459,12 +459,14 @@ var c1dbp=[], c2dbp=[];
 var firstResults;
 function setDbpediaValues(id, c) {
   var url = 'http://dbpedia.org/sparql';
-  var query = 'SELECT DISTINCT ?country ?capital ?currency ?tongue ?population ?gdpnom ?ginii ?areatotal ?govttype ?perofwater' 
+  var query = 'SELECT DISTINCT ?country ?country2  ?capital ?currency ?tongue ?population ?gdpnom ?ginii ?areatotal ?govttype ?perofwater' 
     + ' ?popdensity ?gdppp ?wikilink ?abstract ?hdi WHERE {'
     + ' ?c a dbpedia-owl:Country.'
     + ' ?c dbpedia-owl:wikiPageID "' + id + '"^^xsd:integer.'
     + ' optional {?c dbpprop:conventionalLongName ?country.'
     + ' FILTER(langMatches(lang(?country), "en"))}'
+    + ' ?c rdfs:label ?country2.'
+    + ' FILTER(langMatches(lang(?country2), "en"))'
     + ' optional {?c dbpedia-owl:capital ?cap.'
     + ' ?cap rdfs:label ?capital.'
     + ' FILTER(langMatches(lang(?capital), "en"))}'
@@ -496,16 +498,17 @@ function setDbpediaValues(id, c) {
     	results = data.results.bindings;
     	if (c == 'c1') {
 	        try{
+	        	
 	            if (typeof(results[0].country) != 'undefined') {
 	              c1dbp[0] = results[0].country.value;
-	            } else c1dbp[0] = "n/a";
+	            } else c1dbp[0] = results[0].country2.value;
 	            if (typeof(results[0].capital) != 'undefined') {
 	              c1dbp[1] = results[0].capital.value;
 	            } else c1dbp[1] = "n/a";
 	            if (typeof(results[0].currency) != 'undefined') {
 	              c1dbp[2] = results[0].currency.value;
 	            } else c1dbp[2] = "n/a";
-	            if (typeof(results[0].tongue) != 'undefined') {
+	            if (typeof(results[0].tongue) != 'undefined' && results[0].tongue.value.length < 30) {
 	              c1dbp[3] = results[0].tongue.value;
 	            } else c1dbp[3] = "n/a";
 	            if (typeof(results[0].population) != 'undefined') {
@@ -550,14 +553,14 @@ function setDbpediaValues(id, c) {
 	  		try {
 	            if (typeof(results[0].country) != 'undefined') {
 	              c2dbp[0] = results[0].country.value;
-	            } else c2dbp[0] = "n/a";
+	            } else c2dbp[0] = results[0].country2.value;
 	            if (typeof(results[0].capital) != 'undefined') {
 	              c2dbp[1] = results[0].capital.value;
 	            } else c2dbp[1] = "n/a";
 	            if (typeof(results[0].currency) != 'undefined') {
 	              c2dbp[2] = results[0].currency.value;
 	            } else c2dbp[2] = "n/a";
-	            if (typeof(results[0].tongue) != 'undefined') {
+	            if (typeof(results[0].tongue) != 'undefined' && results[0].tongue.value.length < 30) {
 	              c2dbp[3] = results[0].tongue.value;
 	            } else c2dbp[3] = "n/a";
 	            if (typeof(results[0].population) != 'undefined') {
