@@ -1,6 +1,9 @@
-﻿//---------------------------------------------------------------------------------------------------------
-//Country load from JSON and main function
-//Author: Maxim Serebrianski
+﻿/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Country load from JSON and main function
+* @author Maxim Serebrianski (Logic)
+* @author Erica Hermanson (Debugging of compare function)
+*/
 
 var ctr, c1_sc, c2_sc, c1_id, c2_id, wikiPageCountry, wikiLinkC1, wikiAbsC1, wikiLinkC2, wikiAbsC2;
 var cList = [], cList_s = [], cList_i = [], IDlist = ["genInfoLeft", "genInfoRight", "scoresLeft", "scoresRight"], dbp = [];
@@ -43,9 +46,11 @@ function compare() {
 	}
 }
 
-//---------------------------------------------------------------------------------------------------------
-//Input validation
-//Author: Maxim Serebrianski
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Input validation
+* @author Maxim Serebrianski (Logic)
+*/
 
 function validateInput(c1, c2) {
 	//Check if input fields are empty
@@ -106,9 +111,11 @@ for(var i=0; i<IDlist.length; i++) {
 }
 
 
-//----------------------------------------------------------------------------------------------------------
-//Wikipedia Abstract+Link
-//Author: Maxim Serebrianski
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Wikipedia Abstract+Link
+* @author Maxim Serebrianski (Logic)
+*/
 
 function getWikiAbstract(c) {
 	if (c == 'c1') {
@@ -132,9 +139,11 @@ function setWikiLink(c) {
 	}
 }
 
-//------------------------------------------------------------------------------------------------------------
-//Alerts
-//Author: Maxim Serebrianski
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Alerts
+* @author Maxim Serebrianski (Logic)
+*/
 
 function showAlert(alert) {
 	document.getElementById(alert).style.opacity = 1;
@@ -159,9 +168,12 @@ function hideAlert(alert) {
 }
 
 
-//--------------------------------------------------------------------------------------------------------------
-//Display values in html
-//Author: Maxim Serebrianski & Marcus Szkoc
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Display values in html
+* @author Maxim Serebrianski (Logic)
+* @author Marcus Szkoc (Bugfixing)
+*/
 
 function setValue(id, value) {
 	 document.getElementById(id).innerHTML = value;
@@ -227,9 +239,12 @@ function setValuesC2() {
 	setValue('r20', c2[19]);
 }
 
-//--------------------------------------------------------------------------------------------------
-//Comparison functionality and setting values
-//Author: Maxim Serebrianski & Marcus Szkoc
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Comparison functionality and setting values
+* @author Maxim Serebrianski (Logic)
+* @author Marcus Szkoc (Bugfixing)
+*/
 
 //Attribute values for c1 and c2, attribute weights and inversion flag
 var c1 = [], c2 = [], pct = [], inv = [];
@@ -313,7 +328,6 @@ function compAtrHigh(i) {
 		case isNaN(c1[i]) || isNaN(c2[i]):
 			break;
 		case c1[i] > c2[i]:
-			console.log("Attribute " + (i+1) + " --> c1 > c2");
 			if (!inv[i]) {
 				sc1 += 1 * pct[i];
 				sc2 += (c2[i]/c1[i]) * pct[i];
@@ -322,7 +336,6 @@ function compAtrHigh(i) {
 				sc2 += 1 * pct[i];
 			} break;
 		case c1[i] < c2[i]:
-			console.log("Attribute " + (i+1) + " --> c1 < c2");
 			if (!inv[i]) {
 				sc1 += (c1[i]/c2[i]) * pct[i];
 				sc2 += 1 * pct[i];
@@ -331,7 +344,6 @@ function compAtrHigh(i) {
 				sc2 += (c1[i]/c2[i]) * pct[i];
 			} break;
 		case c1[i] = c2[i]:
-			console.log("Attribute " + (i+1) + " --> c1 = c2");
 			sc1 += 1 * pct[i];
 			sc2 += 1 * pct[i];
 			break;
@@ -344,7 +356,6 @@ function compAtrLow(i) {
 		case isNaN(c1[i]) || isNaN(c2[i]):
 			break;
 		case c1[i] > c2[i]:
-			console.log("Attribute " + (i+1) + " --> c1 > c2");
 			if (!inv[i]) {
 				sc1 += (c2[i]/c1[i]) * pct[i];
 				sc2 += 1 * pct[i];
@@ -353,7 +364,6 @@ function compAtrLow(i) {
 				sc2 += (c2[i]/c1[i]) * pct[i];
 			} break;
 		case c1[i] < c2[i]:
-			console.log("Attribute " + (i+1) + " --> c1 < c2");
 			if (!inv[i]) {
 				sc1 += 1 * pct[i];
 				sc2 += (c1[i]/c2[i]) * pct[i];
@@ -362,7 +372,6 @@ function compAtrLow(i) {
 				sc2 += 1 * pct[i];
 			} break;
 		case c1[i] = c2[i]:
-			console.log("Attribute " + (i+1) + " --> c1 = c2");
 			sc1 += 1 * pct[i];
 			sc2 += 1 * pct[i];
 			break;
@@ -381,7 +390,6 @@ function runComp() {
 		if (highEqGood[i]) {
 			compAtrHigh(i);
 		} else compAtrLow(i);
-		console.log("Step " + (i+1) + " --> sc1: " + sc1 + ", sc2: " + sc2);
 	}
 
 	console.log("Score 1: " + sc1 + '\n' + "Score 2: " + sc2);
@@ -395,9 +403,12 @@ function setScores() {
 }
 
 
-//--------------------------------------------------------------------------------------------------
-//Author: Marcus Szkoc
-//Attribute value extraction from CIA factbook XML
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Attribute value extraction from CIA factbook XML
+* @author Marcus Szkoc (Logic)
+* @author Maxim Serebrianski (some Modifications)
+*/
 
 if (window.XMLHttpRequest) {
 	// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -440,9 +451,14 @@ function ciaData(country, id) {
 	}
 }
 
-//---------------------------------------------------------------------------------------------------------------------------------
-//Authors: Maxim Serebrianski & Erica Hermanson (Logic),Marcus Szkoc , Mahendra Padi (Query)
-//Dbpedia Query
+/**
+* ---------------------------------------------------------------------------------------------------------------------------------
+* Dbpedia Query
+* @author Maxim Serebrianski (Logic)
+* @author Erica Hermanson (Logic)
+* @author Marcus Szkoc (Bugfixing)
+* @author Mahendra Padi (Query)
+*/
 
 var c1dbp=[], c2dbp=[];
 
@@ -593,4 +609,3 @@ function setDbpediaValues(id, c) {
     	}
   	}});
 }
-//--------------------------------------------------------------------------------------------------
